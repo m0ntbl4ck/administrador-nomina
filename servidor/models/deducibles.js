@@ -7,4 +7,4 @@ let model_deducibles = new Schema({
   descuento: Number,
 });
 
-module.exports = mongoose.model('administrador', model_deducibles);
+module.exports = mongoose.model('deducibles', model_deducibles);

@@ -19,15 +19,12 @@ mongoose
   });
 
 //configuraciones
+//configuraciones
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/css-admon', express.static(path.resolve('.../public/pages/home')));
+app.use('/js', express.static(path.resolve('../cliente/administrador/js')));
 app.use(
-  '/public/pages/empleado',
-  express.static(path.resolve('.../public/pages/empleado')),
-);
-app.use(
-  '/public/pages/administrador',
-  express.static(path.resolve('.../public/pages/administrador')),
+  '/css',
+  express.static(path.resolve('../cliente/administrador/css')),
 );
 
 const Admin = require('./models/administrador');
@@ -57,6 +54,29 @@ app.post('/login_admin', async function (req, res) {
     res.send('Usuario no encontrado');
   }
 });
+
+/*Rutas Nataly*/
+app.get("/listado-empleados", function (req, res) {
+  res.sendFile(path.resolve("../cliente/administrador/html/listado-empleados.html"));
+});
+
+//Ruta -Obtener empleados de la BD
+app.get("/obtenerListadoEmpleados", async function (req, res) {
+  let docs = await Empleados.find();
+  res.send(docs);
+});
+
+app.post("/agregar-empleados", async function (req, res) {
+  let datos_enviados = req.body;
+  let nuevo_registro = new Empleados(datos_enviados);
+  await nuevo_registro.save();
+  res.send("Se registro el empleado");
+});
+
+app.get('/form-empleados', function(req, res){
+  res.sendFile(path.resolve('../cliente/administrador/html/agregar-empleado.html'))
+})
+
 
 app.listen(3000, function () {
   console.log('Servidor listo y preparado en el puerto 3000');
