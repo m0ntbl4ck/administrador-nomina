@@ -11,7 +11,7 @@ let model_empleados = new Schema({
   email: String,
   direccion: String,
   cargo: String,
-  id: String,
+  contrasena: String,
 });
 
 module.exports = mongoose.model('empleados', model_empleados);
