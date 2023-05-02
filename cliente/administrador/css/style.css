@@ -1,0 +1,34 @@
+/*Estilos navbar costado Izquierdo*/
+
+.navbar-principal-contenedor {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-izq-contenedor {
+  width: 30%;
+  height: 100vh;
+  background-color: #464343;
+}
+
+.navbar-opciones-contenedor {
+  width: 50%;
+  margin: auto;
+}
+
+.navbar-informacion {
+  margin: 8em auto;
+  justify-self: center;
+  text-align: center;
+  color: #fff;
+}
+
+.nav-link {
+  background-color: #979292;
+  color: black;
+}
+
+/*Estilos seccion de la derecha*/
+.navbar-der-contenedor {
+  width: 70%;
+}
