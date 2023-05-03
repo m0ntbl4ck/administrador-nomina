@@ -87,7 +87,7 @@ app.get("/obtenerListadoHorasExtra", async function (req, res) {
   res.send(doc);
 });
 
-app.post("/agregar-horas-extras", async function (req, res) {
+app.post("/agregar-horas-extra", async function (req, res) {
   let datos_enviados = req.body;
   let nuevo_registro = new Horas_extra(datos_enviados);
   await nuevo_registro.save();
