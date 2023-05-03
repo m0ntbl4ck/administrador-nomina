@@ -14,17 +14,22 @@
         <input type="text" name="usuario" id="" /><br /><br />
         <label for="">Contraseña: </label><br />
         <input type="text" name="contrasena" id="" /><br /><br />
-        <input type="checkbox" name="" id="" />
-        <label for="">Empleado</label><br /><br />
-        <input type="button" value="INGRESAR" />
+        <input
+          type="checkbox"
+          value="empleado"
+          name="tipo_usuario"
+          id="tipo_usuario" />
+        <label for="">Es Empleado?</label><br /><br />
+        <input type="submit" value="INGRESAR" />
       </form>
       <p>Ingrese aqui usando su usuario y contraseña de Red asignados.</p>
     </section>
+    <p style="background-color: red" id="alert">Usuario no encontrado</p>
     <hr />
     <section>
       <h3>QUEREMOS FACILITAR TUS TRAMITES</h3>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="./login.js"></script>
+    <script src="../js/login.js"></script>
   </body>
 </html>

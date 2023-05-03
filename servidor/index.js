@@ -20,15 +20,9 @@ mongoose
 
 //configuraciones
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/css-admon', express.static(path.resolve('.../public/pages/home')));
-app.use(
-  '/public/pages/empleado',
-  express.static(path.resolve('.../public/pages/empleado')),
-);
-app.use(
-  '/public/pages/administrador',
-  express.static(path.resolve('.../public/pages/administrador')),
-);
+app.use('/css', express.static(path.resolve('../cliente/administrador/css')));
+app.use('/js', express.static(path.resolve('../cliente/administrador/js')));
+app.use('/js', express.static(path.resolve('../cliente/home/js')));
 
 const Admin = require('./models/administrador');
 const Empleados = require('./models/empleados');
@@ -44,17 +38,34 @@ app.get('/', function (req, res) {
 /* Rutas Brandon  */
 // Inicio de sesion administrador
 app.post('/login_admin', async function (req, res) {
-  let login_usuario = res.body.usuario;
-  let login_contras = res.body.contrasena;
+  let login_usuario = req.body.usuario;
+  let login_contras = req.body.contrasena;
+
   let existe_admin = await Admin.findOne({
     $and: [{ usuario: login_usuario }, { contrasena: login_contras }],
   });
-
+  console.log(existe_admin);
   if (existe_admin != null) {
-    res.send('Bienvenido de nuevo');
+    res.send(true);
     console.log('claves ' + existe_admin.usuario, existe_admin.contrasena);
   } else {
-    res.send('Usuario no encontrado');
+    res.send(false);
+  }
+});
+// Inicio de sesion empleado
+app.post('/login_empleado', async function (req, res) {
+  let login_usuario = Math.floor(req.body.usuario);
+  let login_contras = req.body.contrasena;
+
+  let existe_admin = await Empleados.findOne({
+    $and: [{ dni: login_usuario }, { contrasena: login_contras }],
+  });
+  console.log(existe_admin);
+  if (existe_admin != null) {
+    res.send(true);
+    console.log('claves ' + existe_admin.usuario, existe_admin.contrasena);
+  } else {
+    res.send(false);
   }
 });
 
