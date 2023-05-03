@@ -77,6 +77,26 @@ app.get('/form-empleados', function(req, res){
   res.sendFile(path.resolve('../cliente/administrador/html/agregar-empleado.html'))
 })
 
+// Horas extra
+app.get("/listado-horas-extra", function (req, res) {
+  res.sendFile(path.resolve("../cliente/administrador/html/listado-horas-extras.html"));
+});
+
+app.get("/obtenerListadoHorasExtra", async function (req, res) {
+  let doc = await Horas_extra.find();
+  res.send(doc);
+});
+
+app.post("/agregar-horas-extras", async function (req, res) {
+  let datos_enviados = req.body;
+  let nuevo_registro = new Horas_extra(datos_enviados);
+  await nuevo_registro.save();
+  res.send("Se registro la hora extra");
+});
+
+app.get("/form-horas-extras", function (req, res) {
+  res.sendFile(path.resolve("../cliente/administrador/html/agregar-horas-extras.html"));
+});
 
 app.listen(3000, function () {
   console.log('Servidor listo y preparado en el puerto 3000');

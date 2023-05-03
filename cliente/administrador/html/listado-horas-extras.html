@@ -34,20 +34,21 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 
 <section class="navbar-der-contenedor">
   <article>
-    <i>Icono salir</i>
-    <button>Agregar empleado</button>
+    <i class="bi bi-box-arrow-right"></i>
+    <button onclick="window.location.href='./form-horas-extras'">Agregar Hora Extra</button>
   </article>
 
   <article>
-    <h3>Listado de empleados</h3>
-    <table className="tabla">
+    <h3>Horas extras</h3>
+    <table className="tabla" id="tablaHorasExtra">
+      <!--
       <thead>
         <tr>
           <th>Id</th>
-          <th>Nombres</th>
-          <th>Cargo</th>
-          <th>Horarios</th>
-          <th>Fecha de ingreso</th>
+          <th>Nombre del empleado</th>
+          <th>Fecha</th>
+          <th>no. de horas</th>
+          <th>Monto</th>
           <th colspan="2"></th>
         </tr>
       </thead>
@@ -56,9 +57,9 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
         <tr>
           <td>1211222</td>
           <td>Felipe Rodriguez</td>
-          <td>Cargo</td>
-          <td>8a.m. a 5p.m.</td>
           <td>12-23-2023</td>
+          <td>2</td>
+          <td>3000</td>
           <td>
             <button>Editar</button>
           </td>
@@ -67,6 +68,7 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
           </td>
         </tr>
       </tbody>
+    -->
     </table>
   </article>
 
@@ -75,7 +77,7 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
 </container>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="../js/">
+    <script src="../js/listado-horas-extras.js">
     </script>
 
 </body>
