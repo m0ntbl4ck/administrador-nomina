@@ -20,15 +20,12 @@ mongoose
 
 //configuraciones
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/css-admon', express.static(path.resolve('.../public/pages/home')));
+app.use('/js', express.static(path.resolve('../cliente/administrador/js')));
 app.use(
-  '/public/pages/empleado',
-  express.static(path.resolve('.../public/pages/empleado')),
+  '/css',
+  express.static(path.resolve('../cliente/administrador/css')),
 );
-app.use(
-  '/public/pages/administrador',
-  express.static(path.resolve('.../public/pages/administrador')),
-);
+
 
 const Admin = require('./models/administrador');
 const Empleados = require('./models/empleados');
@@ -56,6 +53,65 @@ app.post('/login_admin', async function (req, res) {
   } else {
     res.send('Usuario no encontrado');
   }
+});
+
+// listado de rutas sebastian 
+//Rutas deducibles
+app.get("/tabla-deducibles", function (req, res) {
+  res.sendFile(path.resolve("../cliente/administrador/html/tabla-deducibles.html"));
+});
+
+// Ruta formulario deducibles
+app.get("/form-deducibles", function (req, res) {
+  res.sendFile(path.resolve("../cliente/administrador/html/deducibles.html"));
+});
+
+
+
+// Se Guardan deducibles en la Base de datos
+app.post("/add-deducibles", async function (req, res) {
+  let datos_Deducible = req.body;
+  let nuevo_Deducible = new Deducible(datos_Deducible);
+  await nuevo_Deducible.save();
+  res.send("Nuevo Deducible");
+  console.log(nuevo_Deducible);
+  
+});
+
+///ruta pedir deducibles de la base de datos
+app.get("/obtener-deducibles", async function (req, res) {
+  let deduciblesdocuments = await Deducible.find();
+  console.log(deduciblesdocuments);
+  res.send(deduciblesdocuments);
+});
+
+//RUTS CARGOS
+// Ruta formulario CARGOS
+// Ruta Agregar cargos
+app.get("/agregar-cargos", function (req, res) {
+  res.sendFile(path.resolve("../cliente/administrador/html/agregar-cargos.html"));
+});
+
+// Ruta Tabla cargos
+app.get("/tabla-cargos", function (req, res) {
+  res.sendFile(path.resolve("../cliente/administrador/html/tabla-cargos.html"));
+});
+
+// Se Guardan LOS CARGOS en la Base de datos
+app.post("/add-cargos", async function (req, res) {
+  let datos_Cargos = req.body;
+  let nuevo_Cargos = new Cargos(datos_Cargos);
+  await nuevo_Cargos.save();
+  res.send("Nuevo Cargos");
+  console.log(nuevo_Cargos);
+  
+});
+
+///ruta pedir CARGOS de la base de datos
+app.get("/obtener-cargos", async function (req, res) {
+  let cargosdocuments = await Cargos.find();
+  console.log(cargosdocuments);
+  res.send(cargosdocuments);
 });
 
 app.listen(3000, function () {

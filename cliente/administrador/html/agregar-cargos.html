@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar cargo</title>
+</head>
+<body>
+    <!-- botones del menu -->
+    <button onclick="href='pagina_empleados.html'">Empleados</button>
+    <button onclick="href='lista_empleados.html'">Lista de empleados</button>
+    <button onclick="href='horas_extra.html'">Horas Extra</button>
+    <button onclick="href='deducciones.html'">Deducciones</button>
+    <hr>
+
+    <!-- Boton de volver -->
+    <button
+      type="button"
+      onclick="window.location.href='/tabla-cargos'"
+      class="btn btn-primary">
+      Volver
+    </button>
+
+    <form id="cargos">
+        <h2>Agregar Cargo</h2>
+        <label for="nombre_cargo">Nombre del Cargo:</label>
+        <input type="text" id="nombre_cargo" name="nombre_cargo"><br>
+      
+        <label for="monto_hora">Pago por Hora:</label>
+        <input type="number" id="monto_hora" name="monto_hora"><br> <br>
+      
+        <button type="submit" onclick="guardarCargo()">Guardar</button>
+      </form>
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script src="../js/script-agregar-cargos.js"></script>
+</body>
+</html>

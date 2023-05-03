@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla deducibles</title>
+</head>
+<body>
+
+    <!-- botones del menu -->
+    <button onclick="href='pagina_empleados.html'">Empleados</button>
+    <button onclick="href='lista_empleados.html'">Lista de empleados</button>
+    <button onclick="href='horas_extra.html'">Horas Extra</button>
+    <button onclick="href='deducciones.html'">Deducciones</button>
+    <hr>
+
+    <!-- Boton de ir a deducible -->
+    <button
+    type="button"
+    onclick="window.location.href='./form-deducibles'"
+    class="btn btn-primary">
+    Agregar Deducible
+  </button>
+
+    <!-- Tabla deducibles -->
+    
+    <table >
+        <caption>Deducibles</caption>
+        <thead>
+          <tr>
+            <th>Descripción</th>
+            <th>Descuento</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+
+          <!-- <tr>
+            <td>EPS</td>
+            <td>$10.00</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Pago de Pensión</td>
+            <td>$20.00</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr> -->
+        </tbody  >
+      </table>
+
+<!-- Importar jquery y script cliente -->    
+   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../js/script-tabladeducibles.js"></script>
+   
+ 
+    
+      
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>deducibles</title>
+  </head>
+  <body>
+    <!-- botones del menu -->
+    <button onclick="href='pagina_empleados.html'">Empleados</button>
+    <button onclick="href='lista_empleados.html'">Lista de empleados</button>
+    <button onclick="href='horas_extra.html'">Horas Extra</button>
+    <button onclick="href='deducciones.html'">Deducciones</button>
+    <hr />
+
+    <!-- Boton de volver -->
+    <button
+      type="button"
+      onclick="window.location.href='/tabla-deducibles'"
+      class="btn btn-primary">
+      Volver 
+    </button>
+
+    <!-- Formulario deducicble -->
+
+    <form id="deducibles">
+      <h2>Agregar Deducible</h2>
+      <label for="descripcion">Descripción:</label><br />
+      <input type="text" id="descripcion" name="descripcion" /><br />
+      <label for="monto">Descuento:</label><br />
+      <input type="number" id="descuento" name="descuento" /><br /><br />
+      <button type="submit">Guarda <lar</button>
+    </form>
+
+   
+    <!-- <a href="tabla-deducibles.html" style="color: black; text-decoration: none"
+		  >Volver a la Tabla Deducibles</a
+		> -->
+
+    <!-- Importar jquery y script cliente -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../js/script-deducibles.js"></script>
+  </body>
+</html>
