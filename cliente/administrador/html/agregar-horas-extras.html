@@ -23,11 +23,13 @@
 
       <article>
         <nav class="navbar-nav navbar-opciones-contenedor flex-column">
-          <button class="nav-link d-block" href="#" id="">Empleados</button>
-          <button class="nav-link d-block" href="#" id="">Horas Extra</button>
-          <button class="nav-link d-block" href="#" id="">Deducciones</button>
-          <button class="nav-link d-block" href="#" id="">Cargos</button>
-          <button class="nav-link d-block" href="#" id="">Nómina</button>
+          <button class="nav-link d-block" onclick="window.location.href='./listado-empleados'" id="">Empleados</button>
+          <button class="nav-link d-block" onclick="window.location.href='./listado-horas-extra'" id="">Horas
+            Extra</button>
+          <button class="nav-link d-block" onclick="window.location.href='./listado-deducibles'"
+            id="">Deducciones</button>
+          <button class="nav-link d-block" onclick="window.location.href='./listado-cargos'" id="">Cargos</button>
+          <button class="nav-link d-block" onclick="window.location.href='./listado-nomina'" id="">Nómina</button>
         </nav>
       </article>
     </section>
@@ -43,7 +45,7 @@
         <h3>Agregar Horas extra</h3>
 
         <form id="form-agregar-horas-extra">
-          
+
           <fieldset>
             <label for="">Id empleado:</label>
             <input type="text" name="id_empleado" placeholder="12345" id="">
