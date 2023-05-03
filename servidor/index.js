@@ -98,6 +98,16 @@ app.get("/form-horas-extras", function (req, res) {
   res.sendFile(path.resolve("../cliente/administrador/html/agregar-horas-extras.html"));
 });
 
+//Deducibles
+app.get("/listado-deducibles", function (req, res) {
+  res.sendFile(path.resolve("../cliente/administrador/html/listado-deducibles.html"));
+});
+
+app.get("/obtenerListadoDeducibles", async function (req, res) {
+  let ded = await Deducible.find();
+  res.send(ded);
+});
+
 app.listen(3000, function () {
   console.log('Servidor listo y preparado en el puerto 3000');
 });

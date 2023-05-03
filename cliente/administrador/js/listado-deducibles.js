@@ -1,48 +1,39 @@
 $(document).ready(function () {
     $.ajax({
-         url: "http://localhost:3000/obtenerListadoHorasExtra",
+         url: "http://localhost:3000/obtenerListadoDeducibles",
          method: "get",
-         success: function (resp) {
-           console.log(resp);
-           setTable(resp);
+         success: function (respuesta) {
+           console.log(respuesta);
+           setTable(respuesta);
          },
        });
    
-     function setTable(resp) {
-       $("#tabla-horas-extra").empty();
+     function setTable(respuesta) {
+       $("#tabla-listado-deducibles").empty();
    
        let cabecera =
-         "<thead><th>Id</th><th>Fecha</th><th>No. de horas</th><th>Monto</th><th> </th></thead>";
-       
-       //  let ultimo= cabecera.lastElementChild
-       // ultimo.colSpan = 2
-
+         "<thead><th>Descripción</th><th>Índice por hora</th><th> </th></thead>";
+   
        let tr_inicio = "<tr>";
        let tr_fin = "</tr>";
    
        let td_inicio = "<td>";
        let td_fin = "</td>";
-       
+
        let boton_inicio = "<button>";
        let boton_fin = "</button>";
-   
+
        let tabla;
        let contador = 0;
-       for (let i = 0; i < resp.length; i++) {
+       for (let i = 0; i < respuesta.length; i++) {
          contador = i + 1;
          tabla +=
            tr_inicio +
            td_inicio +
-           resp[i].id_empleado+
+           respuesta[i].descripcion +
            td_fin +
            td_inicio +
-           resp[i].fecha +
-           td_fin +
-           td_inicio +
-           resp[i].numero_horas +
-           td_fin +
-           td_inicio +
-           resp[i].monto +
+           respuesta[i].descuento +
            td_fin +
            td_inicio +
            boton_inicio + 'Editar'+ boton_fin +
@@ -55,8 +46,7 @@ $(document).ready(function () {
   
        tabla = cabecera + "<tbody>" + tabla + "</tbody>";
    
-       $("#tabla-horas-extra").append(tabla);
+       $("#tabla-listado-deducibles").append(tabla);
      } 
    
  })
- 
