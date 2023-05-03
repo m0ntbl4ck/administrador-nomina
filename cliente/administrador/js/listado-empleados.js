@@ -12,7 +12,7 @@ $(document).ready(function () {
       $("#tabla").empty();
   
       let cabecera =
-        "<thead><th>Nombre</th><th>Apellido</th><th>Dni</th><th>Fecha de nacimiento</th><th>Teléfono</th><th>Email</th><th>dirección</th><th>Cargo</th><th>ID</th></thead>";
+        "<thead><th>Nombre</th><th>Apellido</th><th>Dni</th><th>Fecha de nacimiento</th><th>Teléfono</th><th>Email</th><th>dirección</th><th>Cargo</th><th>Contraseña</th></thead>";
   
       let tr_inicio = "<tr>";
       let tr_fin = "</tr>";
@@ -51,7 +51,7 @@ $(document).ready(function () {
           respuesta[i].cargo +
           td_fin +
           td_inicio +
-          respuesta[i].id +
+          respuesta[i].contrasena +
           td_fin +
           tr_fin;
       }
