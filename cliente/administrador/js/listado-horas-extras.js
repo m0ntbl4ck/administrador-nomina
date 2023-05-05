@@ -26,7 +26,15 @@ $(document).ready(function () {
         for (let i = 0; i < resp.length; i++) {
          console.log(resp[i]);
    $('#tabla-horas-extra').append(
-       `<tr><td>${resp[i].id_empleado}</td><td>${resp[i].fecha}</td><td>${resp[i].numero_horas}</td><td>${resp[i].monto}</td><td><button onclick="eliminar('${resp[i]._id}')">Eliminar</button><td></tr>`
+       `<tr>
+       <td>${resp[i].id_empleado}</td>
+       <td>${resp[i].fecha}</td>
+       <td>${resp[i].numero_horas}</td>
+       <td>${resp[i].monto}</td>
+       <td>
+       <button onclick="eliminar('${resp[i]._id}')">Eliminar</button>
+       <td>
+       </tr>`
      )
    }
    

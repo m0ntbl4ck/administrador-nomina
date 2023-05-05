@@ -31,6 +31,7 @@ const Empleados = require('./models/empleados');
 const Deducible = require('./models/deducibles');
 const Cargos = require('./models/cargos');
 const Horas_extra = require('./models/horas_extra');
+const { log } = require('console');
 
 //Ruta Principal
 app.get('/', function (req, res) {
@@ -55,47 +56,46 @@ app.post('/login_admin', async function (req, res) {
 });
 
 /*Rutas Nataly*/
+// Empleados
 app.get("/listado-empleados", function (req, res) {
-  res.sendFile(path.resolve("../cliente/administrador/html/listado-empleados.html"));
-});
-
-app.get("/obtenerListadoEmpleados", async function (req, res) {
-  let docs = await Empleados.find();
-  res.send(docs);
-});
-
-app.post("/agregar-empleados", async function (req, res) {
-  let datos_enviados = req.body;
-  let nuevo_registro = new Empleados(datos_enviados);
-  await nuevo_registro.save();
-  res.send("Se registro el empleado");
+res.sendFile(path.resolve("../cliente/administrador/html/listado-empleados.html"));
 });
 
 app.get('/form-empleados', function(req, res){
-  res.sendFile(path.resolve('../cliente/administrador/html/agregar-empleado.html'))
+res.sendFile(path.resolve('../cliente/administrador/html/agregar-empleado.html'))
 })
+
+app.post("/agregar-empleados", async function (req, res) {
+  let datos_empleado = req.body;
+  let nuevo_registro_empleado = new Empleados(datos_empleado);
+  await nuevo_registro_empleado.save();
+  res.send("Se registro el empleado");
+});
+
+app.get("/obtenerListadoEmpleados", async function (req, res) {
+  let empleado = await Empleados.find();
+  res.send(empleado);
+});
 
 app.delete('/empleado_delete/:id', async function (req, res) {
   let empleadoid = req.params.id;
-
   await Empleados.findByIdAndRemove(empleadoid);
   res.send('Borrado exitoso');
 });
 
 // Horas extra 
-app.get("/listado-horas-extra", function (req, res) {
-  res.sendFile(path.resolve("../cliente/administrador/html/listado-horas-extras.html"));
+app.get("/listado-horas-extra", function (req, res) { res.sendFile(path.resolve("../cliente/administrador/html/listado-horas-extras.html"));
 });
 
 app.get("/obtenerListadoHorasExtra", async function (req, res) {
-  let doc = await Horas_extra.find();
-  res.send(doc);
+  let horaExtra = await Horas_extra.find();
+  res.send(horaExtra);
 });
 
 app.post("/agregar-horas-extra", async function (req, res) {
-  let datos_enviados = req.body;
-  let nuevo_registro = new Horas_extra(datos_enviados);
-  await nuevo_registro.save();
+  let datos_hora_extra = req.body;
+  let nuevo_registro_hora_extra = new Horas_extra(datos_hora_extra);
+  await nuevo_registro_hora_extra.save();
   res.send("Se registro la hora extra");
 });
 
@@ -116,8 +116,8 @@ app.get("/listado-deducibles", function (req, res) {
 });
 
 app.get("/obtenerListadoDeducibles", async function (req, res) {
-  let ded = await Deducible.find();
-  res.send(ded);
+  let deducible = await Deducible.find();
+  res.send(deducible);
 });
 
 app.delete('/deducible_delete/:id', async function (req, res) {
