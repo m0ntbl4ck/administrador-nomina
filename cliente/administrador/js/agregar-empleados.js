@@ -9,7 +9,6 @@ $(document).ready(function () {
           data: datos,
           success: function (respuesta) {
             alert(respuesta);
-            //window.location.href = "http://localhost:3000/listado-empleados";
           }
         })
       })

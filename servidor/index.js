@@ -19,13 +19,12 @@ mongoose
   });
 
 //configuraciones
-//configuraciones
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/css', express.static(path.resolve('../cliente/administrador/css')));
 app.use('/js', express.static(path.resolve('../cliente/administrador/js')));
-app.use(
-  '/css',
-  express.static(path.resolve('../cliente/administrador/css')),
-);
+app.use('/js', express.static(path.resolve('../cliente/home/js')));
+app.use('/css', express.static(path.resolve('../cliente/home/css')));
+app.use('/js', express.static(path.resolve('../cliente/empleado/js')));
+app.use('/css', express.static(path.resolve('../cliente/empleado/css')));
 
 const Admin = require('./models/administrador');
 const Empleados = require('./models/empleados');
@@ -60,7 +59,6 @@ app.get("/listado-empleados", function (req, res) {
   res.sendFile(path.resolve("../cliente/administrador/html/listado-empleados.html"));
 });
 
-//Ruta -Obtener empleados de la BD
 app.get("/obtenerListadoEmpleados", async function (req, res) {
   let docs = await Empleados.find();
   res.send(docs);
@@ -77,7 +75,14 @@ app.get('/form-empleados', function(req, res){
   res.sendFile(path.resolve('../cliente/administrador/html/agregar-empleado.html'))
 })
 
-// Horas extra
+app.delete('/empleado_delete/:id', async function (req, res) {
+  let empleadoid = req.params.id;
+
+  await Empleados.findByIdAndRemove(empleadoid);
+  res.send('Borrado exitoso');
+});
+
+// Horas extra 
 app.get("/listado-horas-extra", function (req, res) {
   res.sendFile(path.resolve("../cliente/administrador/html/listado-horas-extras.html"));
 });
@@ -98,6 +103,13 @@ app.get("/form-horas-extras", function (req, res) {
   res.sendFile(path.resolve("../cliente/administrador/html/agregar-horas-extras.html"));
 });
 
+app.delete('/horas_extra_delete/:id', async function (req, res) {
+  let horaExtraid = req.params.id;
+
+  await Horas_extra.findByIdAndRemove(horaExtraid);
+  res.send('Borrado exitoso');
+});
+
 //Deducibles
 app.get("/listado-deducibles", function (req, res) {
   res.sendFile(path.resolve("../cliente/administrador/html/listado-deducibles.html"));
@@ -106,6 +118,13 @@ app.get("/listado-deducibles", function (req, res) {
 app.get("/obtenerListadoDeducibles", async function (req, res) {
   let ded = await Deducible.find();
   res.send(ded);
+});
+
+app.delete('/deducible_delete/:id', async function (req, res) {
+  let deducibleid = req.params.id;
+
+  await Deducible.findByIdAndRemove(deducibleid);
+  res.send('Borrado exitoso');
 });
 
 app.listen(3000, function () {
