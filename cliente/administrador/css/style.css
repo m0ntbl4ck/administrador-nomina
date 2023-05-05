@@ -8,7 +8,7 @@
 .navbar-izq-contenedor {
   width: 30%;
   height: 100vh;
-  background-color: #464343;
+  background-color: #273746;
 }
 
 .navbar-opciones-contenedor {
@@ -24,8 +24,8 @@
 }
 
 .nav-link {
-  background-color: #979292;
-  color: black;
+  background-color: #234457;
+  color: rgb(255, 255, 255);
 }
 
 /*Estilos seccion de la derecha*/
@@ -38,20 +38,20 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding-right: 1em;
+  padding-right: 2.5em;
 }
 .navbar-der-opciones i{
   font-size: 35px;
   height: auto;
 }
 .navbar-der-opciones button{
-  width: 20%;
+  background-color: #234457;
   margin: 1em 0;
 }
 .der-listado-general{
   padding: 2em;
   margin: 2em;
-  background-color: #D9D9D9;
+  background-color: #91a2ab;
   border-radius: 12px;
 }
 .der-listado-general h3{
