@@ -40,13 +40,15 @@
     </section>
 
     <section class="navbar-der-contenedor">
-      <article>
+      <article class="navbar-der-opciones">
         <i class="bi bi-box-arrow-right"></i>
 
-        <button type="button" onclick="window.location.href='./form-empleados'">Agregar empleado</button>
+        <button type="button" 
+        class="btn btn-secondary"
+        onclick="window.location.href='./form-empleados'">Agregar empleado</button>
       </article>
 
-      <article>
+      <article class="der-listado-general">
         <h3>Listado de empleados</h3>
         <table className="tabla" >
           
@@ -60,7 +62,7 @@
               <th id="">Email</th>
               <th id="">Dirección</th>
               <th id="">Cargo</th>
-              <th id="">contraseña</th>
+              <th id="">Contraseña</th>
               <th></th>
             </tr>
           </thead>

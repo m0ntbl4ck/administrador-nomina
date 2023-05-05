@@ -25,7 +25,9 @@ $(document).ready(function () {
       <td>${respuesta[i].cargo}</td>
       <td>${respuesta[i].contrasena}</td>
       <td>
-      <button onclick="eliminar_empleado('${respuesta[i]._id}')">Eliminar</button><td>
+      <button 
+      class="btn btn-secondary"
+      onclick="eliminar_empleado('${respuesta[i]._id}')">Eliminar</button><td>
       </tr>`
     )
   }     

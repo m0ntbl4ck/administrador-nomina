@@ -40,16 +40,17 @@
 
 
     <section class="navbar-der-contenedor">
-      <article>
+      <article class="navbar-der-opciones">
         <i class="bi bi-box-arrow-right"></i>
 
-        <button type="button" onclick="window.location.href='./listado-empleados'">Volver</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='./listado-empleados'">Volver</button>
       </article>
 
-      <article>
+      <article  class="der-listado-general">
         <h3>Agregar empleado</h3>
 
-        <form id="form-agregar-empleado">
+        <form id="form-agregar-empleado"
+        class="formulario-agregar">
           <fieldset>
             <label for="nombre">Nombres:</label>
             <input type="text" name="nombre" placeholder="Juan Camilo" id="nombre">
@@ -98,7 +99,8 @@
               <option value="3"></option>
             </select>
           </fieldset>
-          <button type="submit">Agregar empleado</button>
+          <button type="submit"
+          class="btn btn-secondary">Agregar empleado</button>
         </form>
 
       </article>

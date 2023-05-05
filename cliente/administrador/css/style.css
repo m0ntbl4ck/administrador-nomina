@@ -31,4 +31,52 @@
 /*Estilos seccion de la derecha*/
 .navbar-der-contenedor {
   width: 70%;
+  background-color: #fdfdfd;
 }
+
+.navbar-der-opciones{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 1em;
+}
+.navbar-der-opciones i{
+  font-size: 35px;
+  height: auto;
+}
+.navbar-der-opciones button{
+  width: 20%;
+  margin: 1em 0;
+}
+.der-listado-general{
+  padding: 2em;
+  margin: 2em;
+  background-color: #D9D9D9;
+  border-radius: 12px;
+}
+.der-listado-general h3{
+  margin-bottom: 1em;
+}
+/*Estilos tabla*/
+
+.tabla{
+  margin-top: 1.5em;
+}
+.tabla th, td{
+  padding: 0.3em 0.8em 0.3em 0;
+}
+
+/*Estilos formulario*/
+.formulario-agregar{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 2em 4em;
+}
+.formulario-agregar label{
+ margin-right: 1em;
+ width: 10em;
+}
+.formulario-agregar input, select{
+  width: 14em;
+ }

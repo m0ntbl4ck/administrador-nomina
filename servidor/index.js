@@ -19,6 +19,7 @@ mongoose
   });
 
 //configuraciones
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/css', express.static(path.resolve('../cliente/administrador/css')));
 app.use('/js', express.static(path.resolve('../cliente/administrador/js')));
 app.use('/js', express.static(path.resolve('../cliente/home/js')));
@@ -67,6 +68,7 @@ res.sendFile(path.resolve('../cliente/administrador/html/agregar-empleado.html')
 
 app.post("/agregar-empleados", async function (req, res) {
   let datos_empleado = req.body;
+  console.log(datos_empleado);
   let nuevo_registro_empleado = new Empleados(datos_empleado);
   await nuevo_registro_empleado.save();
   res.send("Se registro el empleado");
