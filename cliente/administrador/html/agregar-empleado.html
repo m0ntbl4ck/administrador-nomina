@@ -53,47 +53,48 @@
         class="formulario-agregar">
           <fieldset>
             <label for="nombre">Nombres:</label>
-            <input type="text" name="nombre" placeholder="Juan Camilo" id="nombre">
+            <input type="text" name="nombre" placeholder="Juan Camilo" id="nombre" pattern="^(?=\w*[A-Z])(?=\w*[a-z])\S{3,50}$" title="Debe contener mas de 2 caracteres." required>
           </fieldset>
 
           <fieldset>
             <label for="apellido">Apellidos:</label>
-            <input type="text" name="apellido" placeholder="Gomez Perez" id="apellido">
+            <input type="text" name="apellido" placeholder="Gomez Perez" id="apellido" pattern="^(?=\w*[A-Z])(?=\w*[a-z])\S{3,50}$" title="Debe contener mas de 2 caracteres." required>
           </fieldset>
 
           <fieldset>
             <label for="dni">Documento:</label>
-            <input type="text" name="dni" placeholder="12365458" id="dni">
+            <input type="text" name="dni" placeholder="12365458" id="dni" pattern="^([0-9])\S{6,11}$" title="Debe contener mas de 6 dígitos." required>
           </fieldset>
 
           <fieldset>
             <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-            <input type="date" name="fecha_nacimiento" id="fecha_nacimiento">
+            <input type="date" name="fecha_nacimiento" id="fecha_nacimiento"  max="2005-12-31" required>
           </fieldset>
 
           <fieldset>
             <label for="telefono">Telefono:</label>
-            <input type="number" name="telefono" placeholder="3017476565" id="telefono">
+            <input type="number" name="telefono" placeholder="3017476565" id="telefono" pattern="^([0-9])\S{6,10}$" title="Debe contener mas de 6 dígitos." required>
           </fieldset>
 
           <fieldset>
             <label for="email">Email:</label>
-            <input type="email" name="email" placeholder="juan@gmail.com" id="email">
+            <input type="email" name="email" placeholder="juan@gmail.com" id="email" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" title="
+            Debe seguir la estructura de un correo. Ej: armando@gmail.com" required>
           </fieldset>
 
           <fieldset>
             <label for="direccion">Direccion:</label>
-            <input type="text" name="direccion" placeholder="cra.39 n.10-20" id="direccion">
+            <input type="text" name="direccion" placeholder="cra.39 n.10-20" id="direccion" pattern="[\s\S]{10,40}" required>
           </fieldset>
 
           <fieldset>
             <label for="contrasena">Contraseña:</label>
-            <input type="password" name="contrasena" placeholder="" id="contrasena">
+            <input type="password" name="contrasena" placeholder="" id="contrasena" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$" title="Debe contener entre 8 y 16 caracteres, una mayúscula, una minúscula, un número." required>
           </fieldset>
 
           <fieldset>
             <label for="cargo">Cargo:</label>
-            <select id="cargo" name="cargo">
+            <select id="cargo" name="cargo" required>
               <option value="1"></option>
               <option value="2"></option>
               <option value="3"></option>
