@@ -114,6 +114,22 @@ app.get("/obtener-cargos", async function (req, res) {
   res.send(cargosdocuments);
 });
 
+//boton eliminar deducible.
+app.delete('/eliminar-deducible/:id', async function (req, res) {
+  let iddeducible = req.params.id;
+
+  await Deducible.findByIdAndRemove(iddeducible);
+  res.send('Borrado exitoso');
+});
+
+//boton eliminar cargo.
+app.delete('/eliminar-cargo/:id', async function (req, res) {
+  let idcargos = req.params.id;
+
+  await Cargos.findByIdAndRemove(idcargos);
+  res.send('Borrado exitoso');
+});
+
 app.listen(3000, function () {
   console.log('Servidor listo y preparado en el puerto 3000');
 });
