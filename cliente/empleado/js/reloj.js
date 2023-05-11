@@ -15,36 +15,55 @@ $(document).ready(function () {
     'Noviembre',
     'Diciembre',
   ];
-  function desbloquearBoton() {}
+  let tiempo_entrada, fecha_entrada, tiempo_salida, fecha_salida;
 
   const intervalo = setInterval(() => {
     const local = new Date();
     let dia = local.getDate(),
       mes = local.getMonth(),
       year = local.getFullYear();
-
     $('#tiempo').text(local.toLocaleTimeString());
     $('#fecha').text(`${dia} de ${nombre_meses[mes]} del ${year}`);
   }, 1000);
-
-  $('#entrada').click(function () {
+  let click = localStorage.getItem('clickEntrada');
+  if (click == 'true') {
+    $('#entrada').prop('disabled', true);
     $('#salida').prop('disabled', false);
+  }
+  $('#entrada').click(function () {
     $(this).prop('disabled', true);
-    let tiempo_entrada = $('#tiempo').text();
-    let fecha_entrada = $('#fecha').text();
-    console.log(tiempo_entrada, fecha_entrada);
+    $('#salida').prop('disabled', false);
+    //$(this).prop('disabled', true);
+    tiempo_entrada = new Date();
+
+    console.log(tiempo_entrada);
     $('#alert').text('Entrada marcada satisfactoriamente');
     $('#alert').show();
     $('#alert').fadeOut(5500);
+    localStorage.setItem('clickEntrada', true);
+    localStorage.setItem('tiempo_entrada', tiempo_entrada);
   });
 
   $('#salida').click(function () {
     $(this).prop('disabled', true);
-    let tiempo_salida = $('#tiempo').text();
-    let fecha_salida = $('#fecha').text();
-    console.log(tiempo_salida, fecha_salida);
+
+    console.log(tiempo_salida /* fecha_salida */);
     $('#alert').text('Salida marcada satisfactoriamente');
     $('#alert').show();
     $('#alert').fadeOut(5500);
+    localStorage.setItem('clickEntrada', false);
+    tiempo_salida = new Date();
+    tiempo_entrada = new Date(localStorage.getItem('tiempo_entrada'));
+    console.log(
+      'estas son las hopras de inicio y salida ' +
+        tiempo_entrada +
+        ' ' +
+        tiempo_salida,
+    );
+
+    let diferencia = tiempo_salida - tiempo_entrada;
+    let horas = diferencia / 1000 / 60 / 60;
+    let horasFormateadas = horas.toFixed(2);
+    console.log('horas ' + horasFormateadas);
   });
 });
