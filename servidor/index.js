@@ -32,7 +32,7 @@ const Empleados = require('./models/empleados');
 const Deducible = require('./models/deducibles');
 const Cargos = require('./models/cargos');
 const Horas_extra = require('./models/horas_extra');
-const { log } = require('console');
+
 
 //Ruta Principal
 app.get('/', function (req, res) {
