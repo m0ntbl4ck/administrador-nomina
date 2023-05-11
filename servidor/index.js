@@ -59,11 +59,11 @@ app.post('/login_admin', async function (req, res) {
 /*Rutas Nataly*/
 // Empleados
 app.get("/listado-empleados", function (req, res) {
-res.sendFile(path.resolve("../cliente/administrador/html/listado-empleados.html"));
+  res.sendFile(path.resolve("../cliente/administrador/html/listado-empleados.html"));
 });
 
-app.get('/form-empleados', function(req, res){
-res.sendFile(path.resolve('../cliente/administrador/html/agregar-empleado.html'))
+app.get('/form-empleados', function (req, res) {
+  res.sendFile(path.resolve('../cliente/administrador/html/agregar-empleado.html'))
 })
 
 app.post("/agregar-empleados", async function (req, res) {
@@ -86,7 +86,8 @@ app.delete('/empleado_delete/:id', async function (req, res) {
 });
 
 // Horas extra 
-app.get("/listado-horas-extra", function (req, res) { res.sendFile(path.resolve("../cliente/administrador/html/listado-horas-extras.html"));
+app.get("/listado-horas-extra", function (req, res) {
+  res.sendFile(path.resolve("../cliente/administrador/html/listado-horas-extras.html"));
 });
 
 app.get("/obtenerListadoHorasExtra", async function (req, res) {
@@ -109,23 +110,6 @@ app.delete('/horas_extra_delete/:id', async function (req, res) {
   let horaExtraid = req.params.id;
 
   await Horas_extra.findByIdAndRemove(horaExtraid);
-  res.send('Borrado exitoso');
-});
-
-//Deducibles
-app.get("/listado-deducibles", function (req, res) {
-  res.sendFile(path.resolve("../cliente/administrador/html/listado-deducibles.html"));
-});
-
-app.get("/obtenerListadoDeducibles", async function (req, res) {
-  let deducible = await Deducible.find();
-  res.send(deducible);
-});
-
-app.delete('/deducible_delete/:id', async function (req, res) {
-  let deducibleid = req.params.id;
-
-  await Deducible.findByIdAndRemove(deducibleid);
   res.send('Borrado exitoso');
 });
 

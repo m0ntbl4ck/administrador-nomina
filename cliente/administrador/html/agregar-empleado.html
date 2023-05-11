@@ -34,7 +34,7 @@
             onclick="window.location.href='./listado-empleados'">Empleados</a></li>
         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience"
             onclick="window.location.href='./listado-horas-extra'">Horas Extra</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="window.location.href='/listado-deducibles'"
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="window.location.href='/tabla-deducibles'"
             href="#education">Deducciones</a></li>
         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills"
             onclick="window.location.href='/tabla-cargos'">Cargos</a></li>
@@ -50,7 +50,8 @@
 
   <!-- Boton de volver a tabla  -->
   <div class="container mt-5 d-flex justify-content-end">
-    <button type="button" class="btn btn-secondary text-light" onclick="window.location.href='./listado-empleados'">Volver</button>
+    <button type="button" class="btn btn-secondary text-light"
+      onclick="window.location.href='./listado-empleados'">Volver</button>
   </div>
 
   <!-- Formulario-->
@@ -60,63 +61,63 @@
 
       <form id="form-agregar-empleado">
         <h2>Agregar empleado</h2>
-        
-          <label for="nombre">Nombres:</label>
-          <input class="form-control" type="text" name="nombre" placeholder="Juan Camilo" id="nombre"
-            pattern="^(?=\w*[A-Z])(?=\w*[a-z])\S{3,50}$" title="Debe contener mas de 2 caracteres." required>
-        
 
-        
-          <label for="apellido">Apellidos:</label>
-          <input class="form-control" type="text" name="apellido" placeholder="Gomez Perez" id="apellido"
-            pattern="^(?=\w*[A-Z])(?=\w*[a-z])\S{3,50}$" title="Debe contener mas de 2 caracteres." required>
-        
+        <label for="nombre">Nombres:</label>
+        <input class="form-control" type="text" name="nombre" placeholder="Juan Camilo" id="nombre"
+          pattern="^(?=\w*[A-Z])(?=\w*[a-z])\S{3,50}$" title="Debe contener mas de 2 caracteres." required>
 
-        
-          <label for="dni">Documento:</label>
-          <input class="form-control" type="text" name="dni" placeholder="12365458" id="dni" pattern="^([0-9])\S{6,11}$"
-            title="Debe contener mas de 6 dígitos." required>
-        
 
-        
-          <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-          <input class="form-control" type="date" name="fecha_nacimiento" id="fecha_nacimiento" max="2005-12-31" required>
-        
 
-        
-          <label for="telefono">Telefono:</label>
-          <input class="form-control" type="number" name="telefono" placeholder="3017476565" id="telefono" pattern="^([0-9])\S{6,10}$"
-            title="Debe contener mas de 6 dígitos." required>
-        
+        <label for="apellido">Apellidos:</label>
+        <input class="form-control" type="text" name="apellido" placeholder="Gomez Perez" id="apellido"
+          pattern="^(?=\w*[A-Z])(?=\w*[a-z])\S{3,50}$" title="Debe contener mas de 2 caracteres." required>
 
-        
-          <label for="email">Email:</label>
-          <input class="form-control" type="email" name="email" placeholder="juan@gmail.com" id="email" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
-            title="
+
+
+        <label for="dni">Documento:</label>
+        <input class="form-control" type="text" name="dni" placeholder="12365458" id="dni" pattern="^([0-9])\S{6,11}$"
+          title="Debe contener mas de 6 dígitos." required>
+
+
+
+        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+        <input class="form-control" type="date" name="fecha_nacimiento" id="fecha_nacimiento" max="2005-12-31" required>
+
+
+
+        <label for="telefono">Telefono:</label>
+        <input class="form-control" type="number" name="telefono" placeholder="3017476565" id="telefono"
+          pattern="^([0-9])\S{6,10}$" title="Debe contener mas de 6 dígitos." required>
+
+
+
+        <label for="email">Email:</label>
+        <input class="form-control" type="email" name="email" placeholder="juan@gmail.com" id="email"
+          pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" title="
         Debe seguir la estructura de un correo. Ej: armando@gmail.com" required>
-        
 
-        
-          <label for="direccion">Direccion:</label>
-          <input class="form-control" type="text" name="direccion" placeholder="cra.39 n.10-20" id="direccion" pattern="[\s\S]{10,40}"
-            required>
-        
 
-        
-          <label for="contrasena">Contraseña:</label>
-          <input class="form-control" placeholder="Debe contener 1 mayúscula, 1 minúscula y un número" type="password" name="contrasena" placeholder="" id="contrasena"
-            pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
-            title="Debe contener entre 8 y 16 caracteres, una mayúscula, una minúscula, un número." required>
-        
 
-        
-          <label for="cargo">Cargo:</label>
-          <select class="form-control" id="cargo" name="cargo" required>
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-          </select>
-        
+        <label for="direccion">Direccion:</label>
+        <input class="form-control" type="text" name="direccion" placeholder="cra.39 n.10-20" id="direccion"
+          pattern="[\s\S]{10,40}" required>
+
+
+
+        <label for="contrasena">Contraseña:</label>
+        <input class="form-control" placeholder="Debe contener 1 mayúscula, 1 minúscula y un número" type="password"
+          name="contrasena" placeholder="" id="contrasena" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
+          title="Debe contener entre 8 y 16 caracteres, una mayúscula, una minúscula, un número." required>
+
+
+
+        <label for="cargo">Cargo:</label>
+        <select class="form-control" id="cargo" name="cargo" required>
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+        </select>
+
 
         <br /><br />
         <button type="submit" class="btn btn-primary text-light">Agregar empleado</button>
