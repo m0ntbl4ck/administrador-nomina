@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar horas extras</title>
+
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <!--icons bootstrap-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="../css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger fs-4  mb-5" href="">
+      <span class="d-block ">Clarence Taylor <br> Administrador</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"
+            onclick="window.location.href='./listado-empleados'">Empleados</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience"
+            onclick="window.location.href='./listado-horas-extra'">Horas Extra</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="window.location.href='/tabla-deducibles'"
+            href="#education">Deducciones</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills"
+            onclick="window.location.href='/tabla-cargos'">Cargos</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests"
+            onclick="window.location.href='./listado-nomina'">Nomina</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- boton de salida de usuario  -->
+  <i class="bi bi-box-arrow-right mx-3 mt-3 d-flex justify-content-end"></i>
+
+  <!-- Boton de volver a tabla  -->
+  <div class="container mt-5 d-flex justify-content-end">
+    <button type="button" class="btn btn-secondary text-light"
+      onclick="window.location.href='./listado-horas-extra'">Volver</button>
+  </div>
+
+  <!-- Formulario-->
+  <div class="container p-5">
+    <section class="" id="about">
+      <form id="form-agregar-horas-extra">
+        <h2>Agregar Horas extra</h2>
+
+        <label for="id_empleado">Id empleado:</label>
+        <input class="form-control" type="text" name="id_empleado" placeholder="12345" id="id_empleado">
+
+
+
+        <label for="fecha">Fecha:</label>
+        <input class="form-control" type="text" name="fecha" placeholder="12345" id="fecha">
+
+
+
+        <label for="numero_horas">No. de horas:</label>
+        <input class="form-control" type="number" name="numero_horas" placeholder="12345" id="numero_horas">
+
+
+
+        <label for="monto">Monto:</label>
+        <input class="form-control" type="number" name="monto" placeholder="9000" id="monto">
+
+
+        <br /><br />
+        <button type="submit" class="btn btn-primary text-light">Guardar</button>
+      </form>
+
+    </section>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="../js/agregar-horas-extra.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
