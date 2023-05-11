@@ -15,6 +15,7 @@ $(document).ready(function () {
     'Noviembre',
     'Diciembre',
   ];
+  function desbloquearBoton() {}
 
   const intervalo = setInterval(() => {
     const local = new Date();
@@ -27,16 +28,18 @@ $(document).ready(function () {
   }, 1000);
 
   $('#entrada').click(function () {
+    $('#salida').prop('disabled', false);
+    $(this).prop('disabled', true);
     let tiempo_entrada = $('#tiempo').text();
     let fecha_entrada = $('#fecha').text();
     console.log(tiempo_entrada, fecha_entrada);
     $('#alert').text('Entrada marcada satisfactoriamente');
     $('#alert').show();
     $('#alert').fadeOut(5500);
-    $('#entrada').disabled();
   });
 
   $('#salida').click(function () {
+    $(this).prop('disabled', true);
     let tiempo_salida = $('#tiempo').text();
     let fecha_salida = $('#fecha').text();
     console.log(tiempo_salida, fecha_salida);
