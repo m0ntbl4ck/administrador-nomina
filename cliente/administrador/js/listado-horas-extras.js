@@ -32,8 +32,8 @@ $(document).ready(function () {
        <td>${resp[i].numero_horas}</td>
        <td>${resp[i].monto}</td>
        <td>
-       <button onclick="eliminar('${resp[i]._id}')">Eliminar</button>
-       <td>
+       <button class="btn btn-danger" onclick="eliminar('${resp[i]._id}')">Eliminar</button>
+       </td>
        </tr>`
      )
    }
