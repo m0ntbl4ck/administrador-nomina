@@ -26,7 +26,16 @@ $(document).ready(function () {
        for (let i = 0; i < respuesta.length; i++) {
         console.log(respuesta[i]);
   $('#tabla-listado-deducibles').append(
-      `<tr><td>${respuesta[i].descripcion}</td><td>${respuesta[i].descuento}</td><td><button onclick="eliminar('${respuesta[i]._id}')">Eliminar</button><td></tr>`
+      `<tr>
+      <td>${respuesta[i].descripcion}</td>
+      <td>${respuesta[i].descuento}</td>
+      <td><button 
+      class="btn btn-danger" 
+      onclick="eliminar('${respuesta[i]._id}')">
+      Eliminar
+      </button>
+      </td>
+      </tr>`
     )
   }
      }
