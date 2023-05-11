@@ -1,11 +1,18 @@
 $(document).ready(function () {
   $('#alert').hide();
-  /* let check;
-  $('#check_empleado').click(function () {
-    let check = $('#check_empleado').val();
+
+  $('#crearadmin').submit((e) => {
+    e.preventDefault();
+    let admin_datos = $('#crearadmin').serialize();
+    $.ajax({
+      url: 'http://localhost:3000/crear_admin',
+      method: 'post',
+      data: admin_datos,
+      success: function (resp) {
+        console.log(resp);
+      },
+    });
   });
-  if (check != undefined){
-      check= 'administrador'; */
 
   $('#login_admin').submit((e) => {
     e.preventDefault();
@@ -18,12 +25,11 @@ $(document).ready(function () {
         method: 'post',
         data: datos_ingresados,
         success: function (resp) {
-          if (resp == true) {
+          if (resp === 'USUARIO AUTENTICADO CORRECTAMENTE') {
             window.location.href = 'http://localhost:3000/listado-empleados';
           } else {
             $('#alert').show();
           }
-          //"';
         },
       });
     } else {
@@ -33,8 +39,18 @@ $(document).ready(function () {
         method: 'post',
         data: datos_ingresados,
         success: function (resp) {
-          if (resp === true) {
-            window.location.href = 'http://localhost:3000/principal_empleado';
+          if (resp != false) {
+            $.ajax({
+              url: 'http://localhost:3000/principal_empleado/',
+              method: 'post',
+              data: resp,
+              success: function () {
+                window.location.href =
+                  'http://localhost:3000/principal_empleado/';
+              },
+            });
+            /* window.location.href =
+              'http://localhost:3000/principal_empleado/' + resp.dni; */
           } else {
             $('#alert').show();
           }

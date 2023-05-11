@@ -2,9 +2,18 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-let model_administrador = new Schema({
+const AdminSchema = new Schema({
   usuario: String,
-  contrasena: String,
+  passwordHash: String,
 });
 
-module.exports = mongoose.model('administradores', model_administrador);
+/* AdminSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id;
+    delete returnedObject._id;
+    delete returnedObject._v;
+    delete returnedObject.passwordHash;
+  },
+});
+ */
+module.exports = mongoose.model('administradores', AdminSchema);
