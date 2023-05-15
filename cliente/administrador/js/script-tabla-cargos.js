@@ -10,7 +10,7 @@ $(document).ready(function () {
   const showcargos = (resp) => {
     $('#tabla-cargos').empty();
     for (let i = 0; i < resp.length; i++) {
-      console.log(resp[i]);
+      //console.log(resp[i]);
       $('#tabla-cargos').append(
         `<tr><td>${resp[i].nombre_cargo}</td><td>${resp[i].monto_hora}</td>
         <td>

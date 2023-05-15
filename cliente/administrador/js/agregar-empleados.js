@@ -2,13 +2,14 @@ $(document).ready(function () {
     $("#form-agregar-empleado").submit(function (e) {
         e.preventDefault();
         let datos_empleado = $(this).serialize();
-    console.log(datos_empleado);
+    //console.log(datos_empleado);
         $.ajax({
           url: "http://localhost:3000/agregar-empleados",
           method: "post",
           data: datos_empleado,
           success: function (respuesta) {
             alert(respuesta);
+            window.location.href = 'http://localhost:3000/listado-empleados'
           }
         })
       })
@@ -18,7 +19,7 @@ $(document).ready(function () {
         url: 'http://localhost:3000/obtenerListadoCargos',
         method: 'get',
         success: function (resp) {
-          console.log(resp);
+          //console.log(resp);
     
           resp.forEach((element) => {
             const nombreCargo = `${element.nombre_cargo}`;

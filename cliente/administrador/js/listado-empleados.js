@@ -3,7 +3,7 @@ $(document).ready(function () {
         url: "http://localhost:3000/obtenerListadoEmpleados",
         method: "get",
         success: function (respuesta) {
-          console.log(respuesta);
+          //console.log(respuesta);
           setTable(respuesta);
         },
       });
@@ -12,7 +12,7 @@ $(document).ready(function () {
       $("#tabla-listado-empleados").empty();
   
       for (let i = 0; i < respuesta.length; i++) {
-        console.log(respuesta[i]);
+        //console.log(respuesta[i]);
   $('#tabla-listado-empleados').append(
       `<tr>
       <td>${respuesta[i].dni}</td>
@@ -34,7 +34,7 @@ $(document).ready(function () {
 }
 })
 function eliminar_empleado (id) {
-  console.log(id);
+  //console.log(id);
   $.ajax({
     url: 'http://localhost:3000/empleado_delete/' + id,
     method: 'delete',

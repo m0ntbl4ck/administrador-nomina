@@ -1,5 +1,5 @@
 function eliminar (id) {
-  console.log(id);
+  //console.log(id);
   $.ajax({
     url: 'http://localhost:3000/horas_extra_delete/' + id,
     method: 'delete',
@@ -24,7 +24,7 @@ $(document).ready(function () {
         $("#tabla-horas-extra").empty();
     
         for (let i = 0; i < resp.length; i++) {
-         console.log(resp[i]);
+         //console.log(resp[i]);
    $('#tabla-horas-extra').append(
        `<tr>
        <td>${resp[i].id_empleado}</td>
