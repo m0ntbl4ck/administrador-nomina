@@ -66,9 +66,5 @@ $(document).ready(function () {
     let horas = diferencia / 1000 / 60 / 60;
     let horasFormateadas = horas.toFixed(2);
     console.log('horas ' + horasFormateadas);
-
-    if (horasFormateadas > 8) {
-      let horasextras = 8 - horasFormateadas;
-    }
   });
 });
