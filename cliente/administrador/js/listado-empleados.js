@@ -22,7 +22,7 @@ $(document).ready(function () {
       <td>${respuesta[i].telefono}</td>
       <td>${respuesta[i].email}</td>
       <td>${respuesta[i].direccion}</td>
-      <td>${respuesta[i].cargo}</td>
+      <td>${respuesta[i].nombre_cargo}</td>
       <td >
       <button 
       class="btn btn-danger"

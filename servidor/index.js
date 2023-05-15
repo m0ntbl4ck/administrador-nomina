@@ -161,6 +161,12 @@ app.delete('/empleado_delete/:id', async function (req, res) {
   res.send('Borrado exitoso');
 });
 
+//obtener Cargos dentro de listado-empleados*******************
+app.get("/obtenerListadoCargos", async function (req, res) {
+  let cargo = await Cargos.find();
+  res.send(cargo);
+});
+
 // Horas extra 
 app.get("/listado-horas-extra", function (req, res) {
   res.sendFile(path.resolve("../cliente/administrador/html/listado-horas-extras.html"));
