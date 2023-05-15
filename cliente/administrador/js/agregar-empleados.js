@@ -12,4 +12,25 @@ $(document).ready(function () {
           }
         })
       })
+
+
+      $.ajax({
+        url: 'http://localhost:3000/obtenerListadoCargos',
+        method: 'get',
+        success: function (resp) {
+          console.log(resp);
+    
+          resp.forEach((element) => {
+            const nombreCargo = `${element.nombre_cargo}`;
+            $('#select_cargos').append(
+              `<option value="${nombreCargo}">${nombreCargo}</option>`,
+            );
+          });
+        },
+        error: function (resp) {
+          alert(resp.responseText);
+    },
+      });
+
+
     })

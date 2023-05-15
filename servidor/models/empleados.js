@@ -10,7 +10,7 @@ let model_empleados = new Schema({
   telefono: Number,
   email: String,
   direccion: String,
-  cargo: String,
+  nombre_cargo: String,
   contrasena: String,
 });
 
