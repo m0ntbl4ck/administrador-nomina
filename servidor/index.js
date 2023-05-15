@@ -41,20 +41,21 @@ app.get('/', function (req, res) {
   res.sendFile(path.resolve('../cliente/home/html/index.html'));
 });
 
-app.post('/crear_admin', async function (req, res) {
+app.post('/crear-admin', async function (req, res) {
   const { usuario, contrasena } = req.body;
-  const saltRounds = 10;
-  const passwordHash = await bcrypt.hash(contrasena, saltRounds);
-  const administrador = new Admin({ usuario, passwordHash });
+  /* const saltRounds = 10;
+  const passwordHash = await bcrypt.hash(contrasena, saltRounds); */
+  const administrador = new Admin({ usuario, contrasena });
   await administrador.save();
+  res.send('Guardados satisfactoriamente');
 });
 /* Rutas Brandon  */
 // Inicio de sesion administrador
-app.post('/login_admin', async function (req, res) {
+app.post('/login-admin', async function (req, res) {
   const { usuario, contrasena } = req.body;
 
   let existe_admin = await Admin.findOne({
-    $and: [{ usuario: usuario }, { passwordHash: contrasena }],
+    $and: [{ usuario }, { contrasena }],
   });
   console.log(existe_admin);
   if (existe_admin != null) {
@@ -65,12 +66,11 @@ app.post('/login_admin', async function (req, res) {
 });
 
 // Inicio de sesion empleado
-app.post('/login_empleado', async function (req, res) {
-  let login_usuario = req.body.usuario;
-  let login_contras = req.body.contrasena;
+app.post('/login-empleado', async function (req, res) {
+  const { usuario, contrasena } = req.body;
 
   let existe_empleado = await Empleados.findOne({
-    $and: [{ dni: login_usuario }, { contrasena: login_contras }],
+    $and: [{ dni: usuario }, { contrasena: contrasena }],
   });
   console.log(existe_empleado);
   if (existe_empleado != null) {
@@ -79,6 +79,7 @@ app.post('/login_empleado', async function (req, res) {
     res.send(false);
   }
 });
+
 //ruta principal empleado
 app.get('/principal-empleado', function (req, res) {
   res.sendFile(
@@ -97,6 +98,7 @@ app.get('/marcar-entrada-salida', function (req, res) {
     path.resolve('../cliente/empleado/html/marcar-entrada-salida.html'),
   );
 });
+
 app.listen(3000, function () {
   console.log('Servidor listo y preparado en el puerto 3000');
 });

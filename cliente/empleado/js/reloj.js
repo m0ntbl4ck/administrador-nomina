@@ -25,6 +25,7 @@ $(document).ready(function () {
     $('#tiempo').text(local.toLocaleTimeString());
     $('#fecha').text(`${dia} de ${nombre_meses[mes]} del ${year}`);
   }, 1000);
+
   let click = localStorage.getItem('clickEntrada');
   if (click == 'true') {
     $('#entrada').prop('disabled', true);
@@ -65,5 +66,9 @@ $(document).ready(function () {
     let horas = diferencia / 1000 / 60 / 60;
     let horasFormateadas = horas.toFixed(2);
     console.log('horas ' + horasFormateadas);
+
+    if (horasFormateadas > 8) {
+      let horasextras = 8 - horasFormateadas;
+    }
   });
 });
