@@ -9,7 +9,7 @@ $(document).ready(function () {
   const showdeducibles = (resp) => {
     $('#tbody').empty();
     for (let i = 0; i < resp.length; i++) {
-      console.log(resp[i]);
+      //console.log(resp[i]);
       $('#tbody').append(
         `<tr><td>${resp[i].descripcion}</td><td>${resp[i].descuento}
         <td>
