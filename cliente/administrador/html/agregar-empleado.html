@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Empleado</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <!--icons bootstrap-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="../css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger fs-4  mb-5" href="">
+      <span class="d-block ">Clarence Taylor <br> Administrador</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link js-scroll-trigger"
+            onclick="window.location.href='./listado-empleados'">Empleados</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger"
+            onclick="window.location.href='./listado-horas-extra'">Horas Extra</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger"
+            onclick="window.location.href='/tabla-deducibles'">Deducciones</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger"
+            onclick="window.location.href='/tabla-cargos'">Cargos</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger"
+            onclick="window.location.href='./listado-nomina'">Nomina</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- boton de salida de usuario  -->
+  <i class="bi bi-box-arrow-right mx-3 mt-3 d-flex justify-content-end"></i>
+
+  <!-- Boton de volver a tabla  -->
+  <div class="container mt-5 d-flex justify-content-end">
+    <button type="button" class="btn btn-secondary text-light"
+      onclick="window.location.href='./listado-empleados'">Volver</button>
+  </div>
+
+  <!-- Formulario-->
+
+  <div class="container p-5">
+    <section class="" id="about">
+
+      <form id="form-agregar-empleado">
+        <h2>Agregar empleado</h2>
+
+        <label for="nombre">Nombres:</label>
+        <input class="form-control" type="text" name="nombre" placeholder="Juan Camilo" id="nombre"
+          pattern="^(?=\w*[a-zA-Z])\S{3,50}$" title="Debe contener mas de 2 caracteres." required>
+
+        <label for="apellido">Apellidos:</label>
+        <input class="form-control" type="text" name="apellido" placeholder="Gomez Perez" id="apellido"
+          pattern="^(?=\w*[a-zA-Z])\S{3,50}$" title="Debe contener mas de 2 caracteres." required>
+
+        <label for="dni">Documento:</label>
+        <input class="form-control" type="text" name="dni" placeholder="12365458" id="dni" pattern="^([0-9])\S{6,11}$"
+          title="Debe contener mas de 6 dígitos." required>
+
+        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+        <input class="form-control" type="date" name="fecha_nacimiento" id="fecha_nacimiento" max="2005-12-31" required>
+
+        <label for="telefono">Telefono:</label>
+        <input class="form-control" type="number" name="telefono" placeholder="3017476565" id="telefono"
+          pattern="^([0-9])\S{6,10}$" title="Debe contener mas de 6 dígitos." required>
+
+        <label for="email">Email:</label>
+        <input class="form-control" type="email" name="email" placeholder="juan@gmail.com" id="email"
+          pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" title="
+        Debe seguir la estructura de un correo. Ej: armando@gmail.com" required>
+
+        <label for="direccion">Direccion:</label>
+        <input class="form-control" type="text" name="direccion" placeholder="cra. 39 n.10-20" id="direccion"
+          pattern="[\s\S]{10,40}" required>
+
+        <label for="contrasena">Contraseña:</label>
+        <input class="form-control" placeholder="Debe contener 1 mayúscula, 1 minúscula y un número" type="password"
+          name="contrasena" placeholder="" id="contrasena" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
+          title="Debe contener entre 8 y 16 caracteres, una mayúscula, una minúscula, un número." required>
+
+        <label for="nombre_cargo">Cargo:</label>
+        <select class="form-control" name="nombre_cargo" id="select_cargos" required>
+        </select>
+
+        <br /><br />
+        <button type="submit" class="btn btn-primary text-light">Agregar empleado</button>
+      </form>
+
+    </section>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="../js/agregar-empleados.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</body>
+
+</html>

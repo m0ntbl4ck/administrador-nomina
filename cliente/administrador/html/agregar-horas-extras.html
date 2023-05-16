@@ -2,16 +2,15 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Listado Empleados</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar horas extras</title>
 
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
   <!--icons bootstrap-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-  <!-- Font Awesome icons (free version)-->
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
   <!-- Google fonts-->
   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
@@ -21,6 +20,7 @@
 </head>
 
 <body>
+
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger fs-4  mb-5" href="">
@@ -46,59 +46,45 @@
     </div>
   </nav>
 
-  <!-- boton de salida de usuario administrador -->
-  <i class="bi bi-box-arrow-right mx-3 mt-3  d-flex justify-content-end"></i>
 
+  <!-- boton de salida de usuario  -->
+  <i class="bi bi-box-arrow-right mx-3 mt-3 d-flex justify-content-end"></i>
 
-  <!-- Boton de ir a agregar -->
+  <!-- Boton de volver a tabla  -->
   <div class="container mt-5 d-flex justify-content-end">
-    <button type="button" class="btn btn-primary text-light" onclick="window.location.href='./form-empleados'">Agregar
-      empleado</button>
+    <button type="button" class="btn btn-secondary text-light"
+      onclick="window.location.href='./listado-horas-extra'">Volver</button>
   </div>
 
+  <!-- Formulario-->
+  <div class="container p-5">
+    <section class="" id="about">
+      <form id="form-agregar-horas-extra">
+        <h2>Agregar Horas extra</h2>
 
-  <!-- Tabla -->
-  <section class="" id="">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h2 class="section-heading text-uppercase">Listado de empleados</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="table-responsive">
-            <table class="table table-bordered table-hover">
+        <label for="id_empleado">Id empleado:</label>
+        <input class="form-control" type="text" name="id_empleado" placeholder="12345" id="id_empleado">
 
-              <thead class="bg-primary text-white">
-                <tr>
-                  <th>Dni</th>
-                  <th>Nombres</th>
-                  <th>Apellidos</th>
-                  <th>Fecha de nacimiento</th>
-                  <th>Telefono</th>
-                  <th>Email</th>
-                  <th>Dirección</th>
-                  <th>Cargo</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody id="tabla-listado-empleados">
+        <label for="fecha">Fecha:</label>
+        <input class="form-control" type="text" name="fecha" placeholder="12345" id="fecha">
 
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <label for="numero_horas">No. de horas:</label>
+        <input class="form-control" type="number" name="numero_horas" placeholder="12345" id="numero_horas">
 
-  <!-- Importar jquery y script cliente -->
+        <label for="monto">Monto:</label>
+        <input class="form-control" type="number" name="monto" placeholder="9000" id="monto">
+
+        <br /><br />
+        <button type="submit" class="btn btn-primary text-light">Guardar</button>
+      </form>
+
+    </section>
+  </div>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="../js/listado-empleados.js"></script>
-
+  <script src="../js/agregar-horas-extra.js">
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
 
 </body>
 

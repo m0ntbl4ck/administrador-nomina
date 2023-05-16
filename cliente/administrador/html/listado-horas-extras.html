@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Listado Empleados</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado horas extras</title>
 
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
   <!--icons bootstrap-->
@@ -52,8 +52,8 @@
 
   <!-- Boton de ir a agregar -->
   <div class="container mt-5 d-flex justify-content-end">
-    <button type="button" class="btn btn-primary text-light" onclick="window.location.href='./form-empleados'">Agregar
-      empleado</button>
+    <button type="button" class="btn btn-primary text-light"
+      onclick="window.location.href='./form-horas-extras'">Agregar Hora Extra</button>
   </div>
 
 
@@ -62,7 +62,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h2 class="section-heading text-uppercase">Listado de empleados</h2>
+          <h2 class="section-heading text-uppercase">Horas extras</h2>
         </div>
       </div>
       <div class="row">
@@ -72,18 +72,15 @@
 
               <thead class="bg-primary text-white">
                 <tr>
-                  <th>Dni</th>
-                  <th>Nombres</th>
-                  <th>Apellidos</th>
-                  <th>Fecha de nacimiento</th>
-                  <th>Telefono</th>
-                  <th>Email</th>
-                  <th>Dirección</th>
-                  <th>Cargo</th>
+                  <th>Id</th>
+                  <th>Fecha</th>
+                  <th>No. de horas</th>
+                  <th>Monto</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
-              <tbody id="tabla-listado-empleados">
+
+              <tbody id="tabla-horas-extra">
 
               </tbody>
             </table>
@@ -93,9 +90,9 @@
     </div>
   </section>
 
-  <!-- Importar jquery y script cliente -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="../js/listado-empleados.js"></script>
+  <script src="../js/listado-horas-extras.js">
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
