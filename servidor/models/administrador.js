@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-let model_administrador = new Schema({
+const AdminSchema = new Schema({
   usuario: String,
+  /* passwordHash: String, */
   contrasena: String,
-  id: String,
 });
 
-module.exports = mongoose.model('administrador', model_administrador);
+module.exports = mongoose.model('administradores', AdminSchema);
