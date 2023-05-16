@@ -28,7 +28,7 @@ $(document).ready(function () {
           if (resp === false) {
             $('#alert').show();
           } else {
-            localStorage.getItem('admin', resp);
+            localStorage.setItem('admin', JSON.stringify(resp));
             window.location.href = 'http://localhost:3000/listado-empleados';
           }
         },
@@ -43,7 +43,7 @@ $(document).ready(function () {
           if (resp === false) {
             $('#alert').show();
           } else {
-            localStorage.getItem('empleado', resp);
+            localStorage.setItem('empleado', JSON.stringify(resp));
             window.location.href = 'http://localhost:3000/principal-empleado';
           }
         },

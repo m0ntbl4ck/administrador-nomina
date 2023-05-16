@@ -87,9 +87,32 @@ app.get('/principal-empleado', function (req, res) {
   );
 });
 
+//ruta pedir datos del empleado
+app.get('/pedir-datos-empleado', async function (req, res) {
+  const { dni } = req.body;
+  let datos_usuario = await Empleados.findOne({ dni: dni });
+  console.log('datos usuariio' + datos_usuario);
+  res.send(datos_usuario);
+});
+
 //ruta editar datos empleado
-app.get('/editar-datos-empleado/:dni', function (req, res) {
-  res.sendFile(path.resolve('../cliente/empleado/html/editar-empleado.html'));
+app.get('/editar-empleado', function (req, res) {
+  res.sendFile(
+    path.resolve('../cliente/empleado/html/editar-datos-empleado.html'),
+  );
+});
+
+//Ruta guardar cambios de empleado
+app.put('/guardar-editar-empleado', async function (req, res) {
+  const { dni, telefono, email, direccion } = req.body;
+
+  let editar_empleado = await Empleados.findOneAndUpdate(
+    { dni: dni },
+    {
+      $set: { email: email, telefono: telefono, direccion: direccion },
+    },
+  );
+  res.send(editar_empleado);
 });
 
 //ruta marcar entrada y salida

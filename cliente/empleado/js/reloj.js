@@ -1,6 +1,13 @@
+const cerrarsesion = () => {
+  localStorage.clear();
+  window.location.href = 'http://localhost:3000/';
+};
 $(document).ready(function () {
   $('#alert').hide();
-
+  const usuario = JSON.parse(localStorage.getItem('empleado'));
+  $('#nombre-empleado').append(
+    `${usuario.nombre} ${usuario.apellido} <br> ${usuario.dni} <br> ${usuario.nombre_cargo}`,
+  );
   const nombre_meses = [
     'Enero',
     'Febrero',
@@ -66,5 +73,18 @@ $(document).ready(function () {
     let horas = diferencia / 1000 / 60 / 60;
     let horasFormateadas = horas.toFixed(2);
     console.log('horas ' + horasFormateadas);
+
+    $('#crearadmin').submit((e) => {
+      e.preventDefault();
+      let admin_datos = $('#crearadmin').serialize();
+      $.ajax({
+        url: 'http://localhost:3000/crear-admin',
+        method: 'post',
+        data: admin_datos,
+        success: function (resp) {
+          console.log(resp);
+        },
+      });
+    });
   });
 });
