@@ -9,12 +9,4 @@ let model_horas_extra = new Schema({
   monto: Number,
 });
 
-/* model_horas_extra.set('toJSON', {
-  transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id;
-    delete returnedObject._id;
-    delete returnedObject._v;
-
-  },
-}); */
 module.exports = mongoose.model('horas_extra', model_horas_extra);

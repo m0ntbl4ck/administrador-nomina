@@ -8,7 +8,7 @@ let marcar_tarjeta = new Schema({
   hora_entrada: String,
   hora_salida: String,
   cant_horas: Number,
-  Horas_extra: Number,
+  horas_extra: Number,
 });
 
 module.exports = mongoose.model('marcar_tarjeta', marcar_tarjeta);

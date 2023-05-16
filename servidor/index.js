@@ -4,7 +4,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
-const bcrypt = require('bcrypt');
 
 //conexión base de datos
 
@@ -34,6 +33,7 @@ const Empleados = require('./models/empleados');
 const Deducible = require('./models/deducibles');
 const Cargos = require('./models/cargos');
 const Horas_extra = require('./models/horas_extra');
+const Tarjeta = require('./models/marcar_tarjeta');
 
 //Ruta Principal
 app.get('/', function (req, res) {
@@ -120,6 +120,27 @@ app.get('/marcar-entrada-salida', function (req, res) {
   res.sendFile(
     path.resolve('../cliente/empleado/html/marcar-entrada-salida.html'),
   );
+});
+
+//Guardar horas entrada y salida
+app.post('/guardar-tarjeta', async function (req, res) {
+  let { dni, fecha, hora_entrada, hora_salida, cant_horas, horas_extra } =
+    req.body;
+  console.log(dni, fecha, hora_entrada, hora_salida, cant_horas, horas_extra);
+  const nueva_entrada = new Tarjeta({
+    dni,
+    fecha,
+    hora_entrada,
+    hora_salida,
+    cant_horas,
+    horas_extra,
+  });
+  await nueva_entrada.save();
+  res.send('Guardados satisfactoriamente');
+});
+
+app.get('/listado-nomina', function (req, res) {
+  res.sendFile(path.resolve('../cliente/empleado/html/listado-nomina.html'));
 });
 
 app.listen(3000, function () {
