@@ -27,6 +27,12 @@ app.use('/js', express.static(path.resolve('../cliente/home/js')));
 app.use('/css', express.static(path.resolve('../cliente/home/css')));
 app.use('/js', express.static(path.resolve('../cliente/empleado/js')));
 app.use('/css', express.static(path.resolve('../cliente/empleado/css')));
+app.use('/css', express.static(path.resolve('../cliente/administrador/css')));
+app.use('/js', express.static(path.resolve('../cliente/administrador/js')));
+app.use('/js', express.static(path.resolve('../cliente/home/js')));
+app.use('/css', express.static(path.resolve('../cliente/home/css')));
+app.use('/js', express.static(path.resolve('../cliente/empleado/js')));
+app.use('/css', express.static(path.resolve('../cliente/empleado/css')));
 
 const Admin = require('./models/administrador');
 const Empleados = require('./models/empleados');
@@ -78,6 +84,152 @@ app.post('/login-empleado', async function (req, res) {
   } else {
     res.send(false);
   }
+});
+
+// listado de rutas sebastian
+//Rutas deducibles
+app.get('/tabla-deducibles', function (req, res) {
+  res.sendFile(
+    path.resolve('../cliente/administrador/html/tabla-deducibles.html'),
+  );
+});
+
+// Ruta formulario deducibles
+app.get('/form-deducibles', function (req, res) {
+  res.sendFile(path.resolve('../cliente/administrador/html/deducibles.html'));
+});
+
+// Se Guardan deducibles en la Base de datos
+app.post('/add-deducibles', async function (req, res) {
+  let datos_Deducible = req.body;
+  let nuevo_Deducible = new Deducible(datos_Deducible);
+  await nuevo_Deducible.save();
+  res.send('Nuevo Deducible');
+  console.log(nuevo_Deducible);
+});
+
+///ruta pedir deducibles de la base de datos
+app.get('/obtener-deducibles', async function (req, res) {
+  let deduciblesdocuments = await Deducible.find();
+  console.log(deduciblesdocuments);
+  res.send(deduciblesdocuments);
+});
+
+//RUTS CARGOS
+// Ruta formulario CARGOS
+// Ruta Agregar cargos
+app.get('/agregar-cargos', function (req, res) {
+  res.sendFile(
+    path.resolve('../cliente/administrador/html/agregar-cargos.html'),
+  );
+});
+
+// Ruta Tabla cargos
+app.get('/tabla-cargos', function (req, res) {
+  res.sendFile(path.resolve('../cliente/administrador/html/tabla-cargos.html'));
+});
+
+// Se Guardan LOS CARGOS en la Base de datos
+app.post('/add-cargos', async function (req, res) {
+  let datos_Cargos = req.body;
+  let nuevo_Cargos = new Cargos(datos_Cargos);
+  await nuevo_Cargos.save();
+  res.send('Nuevo Cargos');
+  console.log(nuevo_Cargos);
+});
+
+///ruta pedir CARGOS de la base de datos
+app.get('/obtener-cargos', async function (req, res) {
+  let cargosdocuments = await Cargos.find();
+  console.log(cargosdocuments);
+  res.send(cargosdocuments);
+});
+
+//boton eliminar deducible.
+app.delete('/eliminar-deducible/:id', async function (req, res) {
+  let iddeducible = req.params.id;
+
+  await Deducible.findByIdAndRemove(iddeducible);
+  res.send('Borrado exitoso');
+});
+
+//boton eliminar cargo.
+app.delete('/eliminar-cargo/:id', async function (req, res) {
+  let idcargos = req.params.id;
+
+  await Cargos.findByIdAndRemove(idcargos);
+  res.send('Borrado exitoso');
+});
+
+/*Rutas Nataly*/
+// Empleados
+app.get('/listado-empleados', function (req, res) {
+  res.sendFile(
+    path.resolve('../cliente/administrador/html/listado-empleados.html'),
+  );
+});
+
+app.get('/form-empleados', function (req, res) {
+  res.sendFile(
+    path.resolve('../cliente/administrador/html/agregar-empleado.html'),
+  );
+});
+
+app.post('/agregar-empleados', async function (req, res) {
+  let datos_empleado = req.body;
+  console.log(datos_empleado);
+  let nuevo_registro_empleado = new Empleados(datos_empleado);
+  await nuevo_registro_empleado.save();
+  res.send('Se registro el empleado');
+});
+
+app.get('/obtenerListadoEmpleados', async function (req, res) {
+  let empleado = await Empleados.find();
+  res.send(empleado);
+});
+
+app.delete('/empleado_delete/:id', async function (req, res) {
+  let empleadoid = req.params.id;
+  await Empleados.findByIdAndRemove(empleadoid);
+  res.send('Borrado exitoso');
+});
+
+//obtener Cargos dentro de listado-empleados*******************
+app.get('/obtenerListadoCargos', async function (req, res) {
+  let cargo = await Cargos.find();
+  res.send(cargo);
+});
+
+// Horas extra
+app.get('/listado-horas-extra', function (req, res) {
+  res.sendFile(
+    path.resolve('../cliente/administrador/html/listado-horas-extras.html'),
+  );
+});
+
+app.get('/obtenerListadoHorasExtra', async function (req, res) {
+  let horaExtra = await Horas_extra.find();
+  res.send(horaExtra);
+});
+
+app.post('/agregar-horas-extra', async function (req, res) {
+  let datos_hora_extra = req.body;
+  let nuevo_registro_hora_extra = new Horas_extra(datos_hora_extra);
+  await nuevo_registro_hora_extra.save();
+  res.send('Se registro la hora extra');
+});
+
+app.get('/form-horas-extras', function (req, res) {
+  res.sendFile(
+    path.resolve('../cliente/administrador/html/agregar-horas-extras.html'),
+  );
+});
+
+app.delete('/horas_extra_delete/:id', async function (req, res) {
+  let horaExtraid = req.params.id;
+
+  await Horas_extra.findByIdAndRemove(horaExtraid);
+  res.send('Borrado exitoso');
 });
 
 // listado de rutas sebastian
