@@ -1,3 +1,8 @@
+const cerrarsesion = () => {
+  localStorage.clear();
+  window.location.href = 'http://localhost:3000/';
+};
+
 $(document).ready(function () {
   $.ajax({
     url: 'http://localhost:3000/obtener-deducibles',
@@ -14,25 +19,23 @@ $(document).ready(function () {
         `<tr><td>${resp[i].descripcion}</td><td>${resp[i].descuento}
         <td>
           <button class="btn btn-danger" onclick="eliminarDeducible('${resp[i]._id}')">Eliminar</button>
-        </td></tr>`
+        </td></tr>`,
       );
     }
   };
 });
 
-
 const eliminarDeducible = (id) => {
-
-    $.ajax({
-      url: `http://localhost:3000/eliminar-deducible/${id}`,
-      method: 'delete',
-      success: function (resp) {
-        // Elimina la fila correspondiente de la tabla
-        alert('Borrado exitoso');
+  $.ajax({
+    url: `http://localhost:3000/eliminar-deducible/${id}`,
+    method: 'delete',
+    success: function (resp) {
+      // Elimina la fila correspondiente de la tabla
+      alert('Borrado exitoso');
       window.location.reload();
-      },
-      error: function (err) {
-        console.error(err);
-      },
-    });
-  }
+    },
+    error: function (err) {
+      console.error(err);
+    },
+  });
+};

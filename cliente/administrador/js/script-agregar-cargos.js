@@ -1,3 +1,8 @@
+const cerrarsesion = () => {
+  localStorage.clear();
+  window.location.href = 'http://localhost:3000/';
+};
+
 $(document).ready(function () {
   $('#cargos').submit((e) => {
     e.preventDefault();

@@ -1,20 +1,25 @@
+const cerrarsesion = () => {
+  localStorage.clear();
+  window.location.href = 'http://localhost:3000/';
+};
+
 $(document).ready(function () {
-   $.ajax({
-        url: "http://localhost:3000/obtenerListadoEmpleados",
-        method: "get",
-        success: function (respuesta) {
-          //console.log(respuesta);
-          setTable(respuesta);
-        },
-      });
-  
-    const setTable = (respuesta) => {
-      $("#tabla-listado-empleados").empty();
-  
-      for (let i = 0; i < respuesta.length; i++) {
-        //console.log(respuesta[i]);
-  $('#tabla-listado-empleados').append(
-      `<tr>
+  $.ajax({
+    url: 'http://localhost:3000/obtenerListadoEmpleados',
+    method: 'get',
+    success: function (respuesta) {
+      //console.log(respuesta);
+      setTable(respuesta);
+    },
+  });
+
+  const setTable = (respuesta) => {
+    $('#tabla-listado-empleados').empty();
+
+    for (let i = 0; i < respuesta.length; i++) {
+      //console.log(respuesta[i]);
+      $('#tabla-listado-empleados').append(
+        `<tr>
       <td>${respuesta[i].dni}</td>
       <td>${respuesta[i].nombre}</td>
       <td>${respuesta[i].apellido}</td>
@@ -28,12 +33,12 @@ $(document).ready(function () {
       class="btn btn-danger"
       onclick="eliminar_empleado('${respuesta[i]._id}')">Eliminar</button>
       </td>
-      </tr>`
-    )
-  }     
-}
-})
-function eliminar_empleado (id) {
+      </tr>`,
+      );
+    }
+  };
+});
+function eliminar_empleado(id) {
   //console.log(id);
   $.ajax({
     url: 'http://localhost:3000/empleado_delete/' + id,
@@ -43,4 +48,4 @@ function eliminar_empleado (id) {
       window.location.reload();
     },
   });
-};
+}
