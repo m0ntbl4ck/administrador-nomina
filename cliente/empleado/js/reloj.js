@@ -88,7 +88,7 @@ $(document).ready(function () {
     }
     let datos = `dni=${
       usuario.dni
-    }&hora_entrada=${tiempo_entrada.toLocaleTimeString()}&fecha=${tiempo_entrada.toLocaleDateString()}&hora_salida=${tiempo_salida.toLocaleTimeString()}&cant_horas=${horasFormateadas}&horas_extra=${horasExtra}`;
+    }&hora_entrada=${tiempo_entrada.toLocaleTimeString()}&fecha=${tiempo_entrada.toDateString()}&hora_salida=${tiempo_salida.toLocaleTimeString()}&cant_horas=${horasFormateadas}&horas_extra=${horasExtra}`;
 
     console.log('los datos ' + datos);
     $.ajax({
