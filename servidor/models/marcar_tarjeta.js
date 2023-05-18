@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 let marcar_tarjeta = new Schema({
   dni: String,
-  fecha: String,
+  fecha: Date,
   hora_entrada: String,
   hora_salida: String,
   cant_horas: Number,
