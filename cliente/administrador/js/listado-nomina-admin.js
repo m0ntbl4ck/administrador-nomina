@@ -2,15 +2,26 @@ const cerrarsesion = () => {
   localStorage.clear();
   window.location.href = 'http://localhost:3000/';
 };
-const mostrardni = (resp) => {
-  $('#nombre-empleado').append(
-    `${resp.nombre} ${resp.apellido} <br> ${resp.dni} <br> ${resp.nombre_cargo}`,
-  );
-};
 
 $(document).ready(function () {
-  let usuario = JSON.parse(localStorage.getItem('empleado'));
-  mostrardni(usuario);
+  $.ajax({
+    url: 'http://localhost:3000/obtenerListadoEmpleados',
+    method: 'get',
+    success: function (resp) {
+      //console.log(resp);
+
+      resp.forEach((element) => {
+        let empleado = `${element.nombre} ${element.apellido}`;
+        $('#listado-empleado').append(
+          `<option value="${element.dni}">${empleado}</option>`,
+        );
+      });
+    },
+    error: function (resp) {
+      alert(resp.responseText);
+    },
+  });
+
   $('#tabla').hide();
   $('#year-desde').change(function () {
     let year = $(this).val();
@@ -47,18 +58,18 @@ $(document).ready(function () {
   $('#filtro-nomina').submit((e) => {
     e.preventDefault();
     let filtro = $('#filtro-nomina').serialize();
-    filtro = `dni=${usuario.dni}&${filtro}`;
     console.log(filtro);
     $.ajax({
-      url: 'http://localhost:3000/nomina-empleado',
+      url: 'http://localhost:3000/nomina-administrador',
       method: 'post',
       data: filtro,
       success: function (resp) {
         console.log(resp);
         $('#tabla').show();
-        $('#dni').text(`identificación: ${usuario.dni}`);
+        let empleado = resp.empleado;
+        $('#dni').text(`identificación: ${empleado.dni}`);
         $('#nombre').text(
-          `Nombre del Empleado: ${usuario.nombre} ${usuario.apellido}`,
+          `Nombre del Empleado: ${empleado.nombre} ${empleado.apellido}`,
         );
         let fechainicio = new Date(resp.fechainicio);
         fechainicio = fechainicio.toLocaleDateString();
@@ -69,29 +80,29 @@ $(document).ready(function () {
         $('#bodynomina').empty();
         $('#bodynomina').append(
           `<tr class=text-center>
-            <td colspan="2">Horas laboradas</td>
-            <td>${resp.horas}</td>
-            <td>${resp.valorcargo}</td>
-            <td colspan="2">${resp.valorhoras}</td>
-            </tr>
-            
-            <tr class=text-center>
-            <td colspan="2">Horas extras</td>
-            <td>${resp.extras}</td>
-            <td>${resp.valorcargo}</td>
-            <td colspan="2">${resp.valorhorasextra}</td>
-            </tr>
-        
-        `,
+              <td colspan="2">Horas laboradas</td>
+              <td>${resp.horas}</td>
+              <td>${resp.valorcargo}</td>
+              <td colspan="2">${resp.valorhoras}</td>
+              </tr>
+              
+              <tr class=text-center>
+              <td colspan="2">Horas extras</td>
+              <td>${resp.extras}</td>
+              <td>${resp.valorcargo}</td>
+              <td colspan="2">${resp.valorhorasextra}</td>
+              </tr>
+          
+          `,
         );
         for (let i = 0; i < deducibles.length; i++) {
           $('#bodynomina').append(
             `<tr class=text-center>
-              <td colspan="2">${deducibles[i].descripcion}</td>
-              <td>1</td>
-              <td>-${deducibles[i].descuento}</td>
-              <td colspan="2">-${deducibles[i].descuento}</td>
-              </tr>`,
+                <td colspan="2">${deducibles[i].descripcion}</td>
+                <td>1</td>
+                <td>-${deducibles[i].descuento}</td>
+                <td colspan="2">-${deducibles[i].descuento}</td>
+                </tr>`,
           );
         }
         $('#total').text(resp.total);

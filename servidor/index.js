@@ -354,7 +354,10 @@ app.post('/nomina-empleado', async function (req, res) {
   let cargo = await Cargos.findOne({ nombre_cargo: empleado.nombre_cargo });
   let deducibles = await Deducible.find();
   let tarjetas = await Tarjeta.find({
-    fecha: { $gte: fechainicio, $lte: fechafin },
+    $and: [
+      { fecha: { $gte: fechainicio, $lte: fechafin } },
+      { dni: filtro.dni },
+    ],
   });
   console.log(tarjetas);
 
@@ -381,6 +384,121 @@ app.post('/nomina-empleado', async function (req, res) {
   let valortotal = valorhoras + valorhorasextra;
   valortotal = valortotal - totaldeducibles;
   let datosNomina = {
+    fechainicio: fechainicio,
+    fechafin: fechafin,
+    horas: sumarHoras,
+    extras: horasExtra,
+    totaldeducibles: totaldeducibles,
+    deducibles: deducibles,
+    valorcargo: cargo.monto_hora,
+    total: valortotal,
+    valorhorasextra: valorhorasextra,
+    valorhoras: valorhoras,
+  };
+  res.send(datosNomina);
+});
+
+//ruta nomina administrador
+app.get('/listado-nomina-administrador', function (req, res) {
+  res.sendFile(
+    path.resolve('../cliente/administrador/html/listado-nomina.html'),
+  );
+});
+
+app.post('/nomina-administrador', async function (req, res) {
+  const filtro = req.body;
+  console.log(filtro);
+
+  const meses = {
+    enero: '01',
+    febrero: '02',
+    marzo: '03',
+    abril: '04',
+    mayo: '05',
+    junio: '06',
+    julio: '07',
+    agosto: '08',
+    septiembre: '09',
+    octubre: '10',
+    noviembre: '11',
+    diciembre: '12',
+  };
+
+  const dias = {
+    1: '01',
+    2: '02',
+    3: '03',
+    4: '04',
+    5: '05',
+    6: '06',
+    7: '07',
+    8: '08',
+    9: '09',
+    10: '10',
+    11: '11',
+    12: '12',
+    13: '13',
+    14: '14',
+    15: '15',
+    16: '16',
+    17: '17',
+    18: '18',
+    19: '19',
+    20: '20',
+    21: '21',
+    22: '22',
+    23: '23',
+    24: '24',
+    25: '25',
+    26: '26',
+    27: '27',
+    28: '28',
+    29: '29',
+    30: '30',
+    31: '31',
+  };
+  const daydesde = dias[filtro.daydesde];
+  const dayhasta = dias[filtro.dayhasta];
+  const monthdesde = meses[filtro.monthdesde];
+  const monthhasta = meses[filtro.monthhasta];
+  let fechainicio = new Date(`${monthdesde}-${daydesde}-${filtro.yeardesde}`);
+  let fechafin = new Date(`${monthhasta} ${dayhasta} ${filtro.yearhasta}`);
+
+  let empleado = await Empleados.findOne({ dni: filtro.empleado });
+  let cargo = await Cargos.findOne({ nombre_cargo: empleado.nombre_cargo });
+  let deducibles = await Deducible.find();
+  let tarjetas = await Tarjeta.find({
+    $and: [
+      { fecha: { $gte: fechainicio, $lte: fechafin } },
+      { dni: filtro.empleado },
+    ],
+  });
+  console.log(tarjetas);
+
+  const sumarHoras = tarjetas.reduce((horas, objeto) => {
+    if (objeto.cant_horas) {
+      horas = horas + objeto.cant_horas;
+    }
+    return horas;
+  }, 0);
+  const horasExtra = tarjetas.reduce((extras, objeto) => {
+    if (objeto.horas_extra) {
+      extras = extras + objeto.horas_extra;
+    }
+    return extras;
+  }, 0);
+  const totaldeducibles = deducibles.reduce((deducible, objeto) => {
+    if (objeto.descuento) {
+      deducible = deducible + objeto.descuento;
+    }
+    return deducible;
+  }, 0);
+  let valorhoras = sumarHoras * cargo.monto_hora;
+  let valorhorasextra = horasExtra * cargo.monto_hora;
+  let valortotal = valorhoras + valorhorasextra;
+  valortotal = valortotal - totaldeducibles;
+  let datosNomina = {
+    empleado: empleado,
     fechainicio: fechainicio,
     fechafin: fechafin,
     horas: sumarHoras,
