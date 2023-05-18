@@ -62,6 +62,7 @@ $(document).ready(function () {
         let deducibles = resp.deducibles;
         fechafin = fechafin.toLocaleDateString();
         $('#fecha').text(`Fecha Nómina: ${fechainicio} - ${fechafin}`);
+        $('#bodynomina').empty();
         $('#bodynomina').append(
           `<tr class=text-center>
             <td colspan="2">Horas laboradas</td>
@@ -78,10 +79,17 @@ $(document).ready(function () {
             </tr>
         
         `,
-          /* for (let i =0; i< deducibles.length-1;i++){
-        a= a+b;
-          }; */
         );
+        for (let i = 0; i < deducibles.length; i++) {
+          $('#bodynomina').append(
+            `<tr class=text-center>
+              <td colspan="2">${deducibles[i].descripcion}</td>
+              <td>1</td>
+              <td>-${deducibles[i].descuento}</td>
+              <td colspan="2">-${deducibles[i].descuento}</td>
+              </tr>`,
+          );
+        }
         $('#total').text(resp.total);
       },
     });
