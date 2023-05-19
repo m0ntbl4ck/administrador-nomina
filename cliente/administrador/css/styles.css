@@ -104,6 +104,9 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+i{
+  cursor: pointer;
+}
 
 #body-1{
   padding: 3rem;
@@ -149,8 +152,7 @@ body {
 
 /* Cambiar color de fondo al hacer hover en los campos de entrada */
 .form-control:hover {
-  background-color: #BD5D38;
-  color: white;
+ background-color: #bd5e381b;
 }
 
 /* Animación al hacer hover en el botón */

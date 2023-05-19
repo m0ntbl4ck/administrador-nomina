@@ -32,7 +32,6 @@ const Admin = require('./models/administrador');
 const Empleados = require('./models/empleados');
 const Deducible = require('./models/deducibles');
 const Cargos = require('./models/cargos');
-const Horas_extra = require('./models/horas_extra');
 const Tarjeta = require('./models/marcar_tarjeta');
 
 //Ruta Principal
@@ -192,38 +191,6 @@ app.delete('/empleado_delete/:id', async function (req, res) {
 app.get('/obtenerListadoCargos', async function (req, res) {
   let cargo = await Cargos.find();
   res.send(cargo);
-});
-
-// Horas extra
-app.get('/listado-horas-extra', function (req, res) {
-  res.sendFile(
-    path.resolve('../cliente/administrador/html/listado-horas-extras.html'),
-  );
-});
-
-app.get('/obtenerListadoHorasExtra', async function (req, res) {
-  let horaExtra = await Horas_extra.find();
-  res.send(horaExtra);
-});
-
-app.post('/agregar-horas-extra', async function (req, res) {
-  let datos_hora_extra = req.body;
-  let nuevo_registro_hora_extra = new Horas_extra(datos_hora_extra);
-  await nuevo_registro_hora_extra.save();
-  res.send('Se registro la hora extra');
-});
-
-app.get('/form-horas-extras', function (req, res) {
-  res.sendFile(
-    path.resolve('../cliente/administrador/html/agregar-horas-extras.html'),
-  );
-});
-
-app.delete('/horas_extra_delete/:id', async function (req, res) {
-  let horaExtraid = req.params.id;
-
-  await Horas_extra.findByIdAndRemove(horaExtraid);
-  res.send('Borrado exitoso');
 });
 
 //ruta principal empleado
