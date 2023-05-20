@@ -51,18 +51,18 @@
   </div>
 
   <!-- Formulario -->
-  <div class="container-fluid p-5">
+  <div class="container-fluid px-5 pt-5 pb-2">
     <h2>Desprendible / Comprobante de Nómina</h2>
     <section class="" id="nomina">
       <div class="resume-section-content">
         
         <form id="filtro-nomina" class="form-group">
-          <div class="container row mb-3 ">
-            <span class="mb-3">Seleccione un Empleado: </span>
-            <select required class="form-select " name="empleado" id="listado-empleado"></select>
+          <div class="container row mb-3">
+            <label >Seleccione un Empleado: </label>
+            <select required class="form-select mb-4" name="empleado" id="listado-empleado"></select>
           </div>
-          <div class="container row mb-3 ">
-            <span class="mb-3">Fecha: </span>
+          <div class="container row">
+            <label >Fecha: </label>
           <select class="form-select col gap-3 me-5" name="yeardesde" id="year-desde">
           <option value="2023">2023</option>
           <option value="2022">2022</option>
@@ -176,18 +176,18 @@
         <option selected value="31">31</option>
       </select>
       </div>
-      <button type="submit" class="btn btn-primary text-light">Generar Nómina</button>
+      <button type="submit" class="btn btn-primary text-light mt-4">Generar Nómina</button>
         </form>
       </div>
     </section>
   </div>
-  <div class="container p-5">
+  <div class="container px-5 pb-5">
     
     <table class="table" id="tabla">
       <thead class="table-primary">
         <tr class="text-center">
           <th colspan="2" id="dni">
-          identificación:
+          Identificación:
 
           </th>
           <th colspan="2" id="nombre">
@@ -218,7 +218,7 @@
 
       </tbody>
       <tfoot >
-        <tr class="text-center">
+        <tr class="text-center fw-bold">
           <td colspan="4">
             Neto a Pagar:
           </td>

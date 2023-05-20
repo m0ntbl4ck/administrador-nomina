@@ -51,15 +51,15 @@
   </div>
 
   <!-- Formulario -->
-  <div class="container p-5">
+  <div class="container-fluid px-5 pt-5 pb-2">
     <h2>Desprendible / Comprobante de Nómina</h2>
     <section class="" id="nomina">
       <div class="resume-section-content">
         
         <form id="filtro-nomina" class="form-group">
-          <div class="container row mb-3 ">
-            <span class="mb-3">Fecha: </span>
-          <select class="form-select col mx-5" name="yeardesde" id="year-desde">
+          <div class="container row mb-3">
+            <label>Fecha: </label>
+          <select class="form-select col gap-3 me-5" name="yeardesde" id="year-desde">
           <option value="2023">2023</option>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
@@ -172,7 +172,7 @@
         <option selected value="31">31</option>
       </select>
       </div>
-      <button type="submit" class="btn btn-primary text-light">Generar Nómina</button>
+      <button type="submit" class="btn btn-primary text-light mt-2">Generar Nómina</button>
         </form>
       </div>
     </section>
@@ -214,7 +214,7 @@
 
       </tbody>
       <tfoot >
-        <tr class="text-center">
+        <tr class="text-center fw-bold">
           <td colspan="4">
             Neto a Pagar:
           </td>

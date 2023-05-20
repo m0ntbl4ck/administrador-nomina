@@ -9,7 +9,9 @@ $(document).ready(function () {
   //traer datos de inicio de sesion en el localstorage  y mostrar datos
   const usuario = JSON.parse(localStorage.getItem('empleado'));
   $('#nombre-empleado').append(
-    `${usuario.nombre} ${usuario.apellido} <br> ${usuario.dni} <br> ${usuario.nombre_cargo}`,
+    `<p class='fs-4 lh-1'>${usuario.nombre} ${usuario.apellido}</p>
+    <p class='fs-6 fw-normal lh-1'>${usuario.dni}</p>
+    <p class='fs-6 fw-light lh-1'><small>${usuario.nombre_cargo}</small> </p>`,
   );
   const nombre_meses = [
     'Enero',

@@ -67,7 +67,7 @@ $(document).ready(function () {
         console.log(resp);
         $('#tabla').show();
         let empleado = resp.empleado;
-        $('#dni').text(`identificación: ${empleado.dni}`);
+        $('#dni').text(`Identificación: ${empleado.dni}`);
         $('#nombre').text(
           `Nombre del Empleado: ${empleado.nombre} ${empleado.apellido}`,
         );
