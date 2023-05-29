@@ -21,10 +21,14 @@
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a onclick="window.location.href='./listado-empleados'" class="navbar-brand js-scroll-trigger fs-4  mb-5 d-block" >
-      <img class="logo-img " src="https://raw.githubusercontent.com/m0ntbl4ck/administrador-nomina/25bbd18d89f15a34aff5f1251c9c30acd3aab0f3/cliente/assets/MarketBook.png" alt="Logo de la página">
-      <span class="d-block mt-5">Administrador</span>
+    <a onclick="window.location.href='./listado-empleados'" class="navbar-brand js-scroll-trigger fs-4 d-block">
+      <img class="logo-img d-none d-sm-block"
+        src="https://raw.githubusercontent.com/m0ntbl4ck/administrador-nomina/25bbd18d89f15a34aff5f1251c9c30acd3aab0f3/cliente/assets/MarketBook.png"
+        alt="Logo de la página">
+      <br class="d-none d-sm-block">
+      <span class="d-block d-none d-sm-block">Administrador</span>
     </a>
+    <br class="d-none d-sm-block"><br class="d-none d-sm-block">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -38,7 +42,7 @@
         <li class="nav-item"><a class="nav-link js-scroll-trigger"
             onclick="window.location.href='/tabla-cargos'">Cargos</a></li>
         <li class="nav-item"><a class="nav-link js-scroll-trigger"
-            onclick="window.location.href='/listado-nomina-administrador'">Nomina</a></li>
+            onclick="window.location.href='/listado-nomina-administrador'">Nómina</a></li>
       </ul>
     </div>
   </nav>
@@ -46,9 +50,7 @@
 
   <!-- boton de salida de usuario  -->
   <div class="container mt-2 d-flex justify-content-end">
-    <i
-      onclick="cerrarsesion()"
-      class="bi bi-box-arrow-right me-4 mt-3 d-flex justify-content-end"></i>
+    <i onclick="cerrarsesion()" class="bi bi-box-arrow-right me-4 mt-3 d-flex justify-content-end"></i>
   </div>
 
   <!-- Boton de volver a tabla  -->
@@ -74,11 +76,12 @@
           pattern="^(?=\w*[a-zA-Z])\S{3,50}$" title="Debe contener mas de 2 caracteres." required>
 
         <label for="dni">Documento:</label>
-        <input class="form-control mb-4" type="text" name="dni" placeholder="12365458" id="dni" pattern="^([0-9])\S{6,11}$"
-          title="Debe contener mas de 6 dígitos." required>
+        <input class="form-control mb-4" type="text" name="dni" placeholder="12365458" id="dni"
+          pattern="^([0-9])\S{6,11}$" title="Debe contener mas de 6 dígitos." required>
 
         <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-        <input class="form-control mb-4" type="date" name="fecha_nacimiento" id="fecha_nacimiento" max="2005-12-31" required>
+        <input class="form-control mb-4" type="date" name="fecha_nacimiento" id="fecha_nacimiento" max="2005-12-31"
+          required>
 
         <label for="telefono">Telefono:</label>
         <input class="form-control mb-4" type="number" name="telefono" placeholder="3017476565" id="telefono"
@@ -94,15 +97,16 @@
           pattern="[\s\S]{10,40}" required>
 
         <label for="contrasena">Contraseña:</label>
-        <input class="form-control mb-4" placeholder="Debe contener 1 mayúscula, 1 minúscula y un número" type="password"
-          name="contrasena" placeholder="" id="contrasena" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
+        <input class="form-control mb-4" placeholder="Debe contener 1 mayúscula, 1 minúscula y un número"
+          type="password" name="contrasena" placeholder="" id="contrasena"
+          pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
           title="Debe contener entre 8 y 16 caracteres, una mayúscula, una minúscula, un número." required>
 
         <label for="nombre_cargo">Cargo:</label>
         <select class="form-control mb-4" name="nombre_cargo" id="select_cargos" required>
         </select>
 
-        
+
         <button type="submit" class="btn btn-primary text-light">Agregar empleado</button>
       </form>
 

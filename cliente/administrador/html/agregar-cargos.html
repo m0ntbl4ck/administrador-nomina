@@ -23,10 +23,14 @@
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a onclick="window.location.href='./listado-empleados'" class="navbar-brand js-scroll-trigger fs-4  mb-5 d-block" >
-      <img class="logo-img " src="https://raw.githubusercontent.com/m0ntbl4ck/administrador-nomina/25bbd18d89f15a34aff5f1251c9c30acd3aab0f3/cliente/assets/MarketBook.png" alt="Logo de la página">
-      <span class="d-block mt-5">Administrador</span>
+    <a onclick="window.location.href='./listado-empleados'" class="navbar-brand js-scroll-trigger fs-4 d-block">
+      <img class="logo-img d-none d-sm-block"
+        src="https://raw.githubusercontent.com/m0ntbl4ck/administrador-nomina/25bbd18d89f15a34aff5f1251c9c30acd3aab0f3/cliente/assets/MarketBook.png"
+        alt="Logo de la página">
+      <br class="d-none d-sm-block">
+      <span class="d-block d-none d-sm-block">Administrador</span>
     </a>
+    <br class="d-none d-sm-block"><br class="d-none d-sm-block">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -40,7 +44,7 @@
         <li class="nav-item"><a class="nav-link js-scroll-trigger"
             onclick="window.location.href='/tabla-cargos'">Cargos</a></li>
         <li class="nav-item"><a class="nav-link js-scroll-trigger"
-            onclick="window.location.href='/listado-nomina-administrador'">Nomina</a></li>
+            onclick="window.location.href='/listado-nomina-administrador'">Nómina</a></li>
 
       </ul>
     </div>
@@ -48,9 +52,7 @@
 
   <!-- boton de salida de usuario administrador -->
   <div class="container mt-2 d-flex justify-content-end">
-    <i
-      onclick="cerrarsesion()"
-      class="bi bi-box-arrow-right me-4 mt-3 d-flex justify-content-end"></i>
+    <i onclick="cerrarsesion()" class="bi bi-box-arrow-right me-4 mt-3 d-flex justify-content-end"></i>
   </div>
 
   <!-- Boton de volver a tabla cargos -->
@@ -67,13 +69,13 @@
         <form id="cargos">
           <h2>Agregar Cargo</h2>
           <div class="form-group">
-            <label for="nombre_cargo">Nombre del Cargo:</label> 
-            <input type="text" class="form-control mb-4" id="nombre_cargo" name="nombre_cargo"> 
+            <label for="nombre_cargo">Nombre del Cargo:</label>
+            <input type="text" class="form-control mb-4" id="nombre_cargo" name="nombre_cargo">
           </div>
 
           <div class="form-group">
             <label for="monto_hora">Pago por Hora:</label>
-            <input type="number" class="form-control  mb-4" id="monto_hora" name="monto_hora"> 
+            <input type="number" class="form-control  mb-4" id="monto_hora" name="monto_hora">
           </div>
 
           <button type="submit" class="btn btn-primary text-light" onclick="guardarCargo()">Guardar</button>
