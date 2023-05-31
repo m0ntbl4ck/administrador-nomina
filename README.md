@@ -67,7 +67,7 @@ git clone https://github.com/m0ntbl4ck/administrador-nomina.git
 
 cd administrador-nomina
 
-####Instala las dependencias del proyecto:
+#### Instala las dependencias del proyecto:
 
 npm install
 
@@ -77,11 +77,11 @@ npm install
 
 cd servidor
 
-####Inicia la aplicación ejecutando el siguiente comando:
+#### Inicia la aplicación ejecutando el siguiente comando:
 
 npx nodemon index.js
 
-####Abre tu navegador web y accede a la siguiente URL:
+#### Abre tu navegador web y accede a la siguiente URL:
 
 http://localhost:3000
 
