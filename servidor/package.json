@@ -4,7 +4,7 @@
   "description": "Administrador de empleados y generación de nómina",
   "main": "index.js",
   "scripts": {
-    "start": "node servidor/index.js"
+    "start": "node index.js"
   },
   "author": "Brandon Vergara, Nataly Quiroga y Sebastian Solarte",
   "license": "ISC",
